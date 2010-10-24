@@ -5,53 +5,80 @@
 \usepackage[utf8x]{inputenc}
 %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
 %\usepackage{newcent}   % uses new century schoolbook postscript font
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,top=0.5in,bottom=0.5in]{geometry}
 \usepackage{hyperref}
 \begin{format}
   \employer{l}\dates{r}\\
   \title{l}\location{r} \\
   \body
 \end{format}
-\newsectionwidth{1em}
+\let\oldemployer=\employer
+\let\oldtitle=\title
+\renewcommand{\employer}[1]{\oldemployer{\textbf{#1}}}
+\renewcommand{\title}[1]{\oldtitle{\textit{#1}}}
 
-\name{Jason Gross}
+% \let\oldposition=\position
+% \let\oldendposition=\endposition
+% \renewenvironment{position}{\oldposition\vspace*{-2\baselineskip}}{\endoldposition}
+
+\makeatletter
+\let\old@itemize=\itemize
+\def\itemize{\old@itemize\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}\setlength{\leftskip}{-1em}}
+\renewenvironment{position}
+  {%
+   \begingroup
+     \par
+       \the\tabular@head
+%     \addpenalty{-\@secpenalty}% bad place for a page break
+     \penalty -\@secpenalty % bad place for a page break
+     \penalty 10000
+     \ignorespaces
+     \vspace*{-\baselineskip}
+  }{%
+       \the\tabular@tail
+%     \addpenalty{\@secpenalty}% good place for a page break
+     \penalty \@secpenalty % good place for a page break
+    \endgroup
+}
+\makeatother
+
+\newsectionwidth{1em}
+\resumewidth=7.5in
+
+
+\name{\LARGE \bf \hspace{\stretch{1}} Jason Gross \hspace{\stretch{1}} \\
+  \hspace{\stretch{1}}\large \href{mailto:jgross@mit.edu}{jgross@mit.edu} --- (631) 790-8962\hspace{\stretch{1}} \\}
+
+\address{\textsc{Present Address}\\3 Ames Street, Box \# 99\\Cambridge, MA 02142}
+\address{\textsc{Permanent Address}\\126 Hayrick Lane \\  Commack, NY 11725}
 
 
 \begin{document}
-\begin{center}
-  \LARGE \bf Jason Gross \\
-  \large \href{mailto:jgross@mit.edu}{jgross@mit.edu} \\
-  \large (631) 790-8962
-\end{center}
-
-\address{\bf  PRESENT ADDRESS\\3 Ames Street, Box \# 99\\Cambridge, MA 02142}
-\address{\bf PERMANENT ADDRESS \\ 126 Hayrick Lane \\  Commack, NY 11725}
-                                  
 \begin{resume}
 
 %\section{JOB OBJECTIVE}          
     %A summer position that will use my accounting and computer
     %skills.          
  
-\section{EDUCATION}          
+\section{\textsc{Education}}          
     Massachusetts Institute of Technology, Cambridge, MA  \\        
     Projected Bachelor of Science, June 2013   \\       
     Major in Mathematics and Physics       \\   
     %Minors in Computer Science and Economics  \\        
     Current G.P.A. 4.8/5.0  \\
-    RELEVANT COURSEWORK
+    Relevant Coursework: 18.701 \& 18.702 (Abstract Algebra I \& II), 18.100C (Real Analysis), 8.03 (Waves and Vibrations), 8.033 (Special Relativity and the Physics of Spacetime)
 
  
-\section{EXPERIENCE}
-   \vspace{-0.1in}	
-   \begin{tabbing}
-   \hspace{2.3in}\= \hspace{2.6in}\= \kill % set up two tab positions
-    {\bf MIT CSAIL}  \>     \> Cambridge, MA\\
-    \emph{Researcher} \>                         \>November 2009--Present
-   \end{tabbing}%\vspace{-20pt}      % suppress blank line after tabbing
-   \begin{itemize}
-     \item Designed from scratch a data collection webpage, collected data for, and helped with research on categorical and transfer learning (\url{http://jgross.scripts.mit.edu/alphabets/}).
-   \end{itemize}
+\section{\textsc{Experience}}
+  \employer{MIT CSAIL}
+  \dates{November 2009--Present}
+  \title{Researcher}
+  \location{Cambridge, MA}
+  \begin{position}
+    \begin{itemize}
+      \item Designed from scratch a data collection webpage, collected data for, and helped with research on categorical and transfer learning (\url{http://jgross.scripts.mit.edu/alphabets/}).
+    \end{itemize}
+  \end{position}
 
     
    %\begin{tabbing}
@@ -60,50 +87,58 @@
                              %\>Cambridge, MA
    %\end{tabbing}%\vspace{-20pt}      % suppress blank line after tabbing
     %Evaluated and categorized videos for updating the 8.01 (Physics I) OCW website.
-   \begin{tabbing}
-   \hspace{2.3in}\= \hspace{2.6in}\= \kill % set up two tab positions
-    {\bf MIT} \>     \> Cambridge, MA \\
-    \emph{Teacher} \>                         \>Fall 2009--Present
-   \end{tabbing}%\vspace{-20pt}      % suppress blank line after tabbing
-   \begin{itemize}
+
+
+  \employer{MIT}
+  \dates{Fall 2009--Present}
+  \title{Teacher}
+  \location{Cambridge, MA}
+  \begin{position}
+    \begin{itemize}
       \item Taught classes on \LaTeX, philosophy, and linear algebra for MIT Educational Studies Program's Splash, Spark, and Summer HSSP (High School Studies Program)
       \item Teaching Assistant for 8.012 (Physics I) in Experimental Study Group
     \end{itemize}
-   \begin{tabbing}
-   \hspace{2.3in}\= \hspace{2.6in}\= \kill % set up two tab positions
-    {\bf Commack High School} \>     \>Commack, NY\\
-    \emph{Independent Research} \>                         \>Fall 2006--Summer 2009
-   \end{tabbing}%\vspace{-20pt}      % suppress blank line after tabbing
-   \begin{itemize}
+  \end{position}
+
+
+  \employer{Commack High School}
+  \dates{Fall 2006--Summer 2009}
+  \title{Independent Researcher}
+  \location{Commack, NY}
+  \begin{position}
+    \begin{itemize}
       \item Independently researched circuits over sets of natural numbers for three years.
       \item Won fourth place award in mathematics in ISEF (Intel International Science and Engineering Fair) in 2009, third place award in ISEF 2008.
     \end{itemize}
-    
-   \begin{tabbing}
-   \hspace{2.3in}\= \hspace{2.6in}\= \kill % set up two tab positions
-    {\bf Turnpike Total Appliance} \>     \>Commack, NY\\
-     \emph{Web Page Designer}      \>                  \>April--October 2007
-   \end{tabbing}%\vspace{-20pt}      % suppress blank line after tabbing
-   \begin{itemize}
-      \item Designed and improved main company website, and took initiative to make more improvements.
+  \end{position}
+
+
+  \employer{Turnpike Total Appliance}
+  \dates{Fall 2006--Summer 2009}
+  \title{Web Page Designer}
+  \location{Commack, NY}
+  \begin{position}
+    \begin{itemize}
+      \item Designed and improved main company website, took initiative to make more improvements.
     \end{itemize}
+  \end{position}
           
 
 
-\section{COMPUTER SKILLS}
+\section{\textsc{Computer Skills}}
     \begin{itemize}
       \item Proficient programming skills -- BASIC, Python, Java, JavaScript, \TeX{} macro language
       \item Working knowledge -- Scheme, Haskell, Mathematica, Matlab, HTML, CSS, git
       \item Basic knowledge -- C, C++
     \end{itemize}
  
-\section{HONORS AND AWARDS}          
+\section{\textsc{Honors and Awards}}
     \begin{itemize}
       \item Mathematics Honor Society: Commack High School
       \item Collection of 12 original K'NEX synagogue models exhibited in various museums (2004--2008)
     \end{itemize}
  
-\section{EXTRACURRICULAR ACTIVITIES}
+\section{\textsc{Extracurricular Activities}}
     \begin{itemize}
       \item Canada/USA Mathcamp (Summers 2006--2009)
       \item HMMT Solutions Editor (2010)
