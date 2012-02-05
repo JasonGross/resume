@@ -1,4 +1,11 @@
 *.pdf
+*.dvi
 *~
 *.log
 *.backup
+.*.swp
+*.swp
+
+*.mtx
+etextools.sty
+Resume-*.tex
