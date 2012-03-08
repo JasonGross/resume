@@ -185,9 +185,6 @@
 %\DeclareOption{11pt}{\renewcommand\@ptsize{1}}
 %\DeclareOption{12pt}{\renewcommand\@ptsize{2}}
 
-\PassOptionsToClass{11pt,12pt}{article}
-\LoadClassWithOptions{article}
-
 \newif\if@line
 \newif\if@margin
 
@@ -197,8 +194,14 @@
 \DeclareOption{margin}{\@margintrue}
 \DeclareOption{overlapped}{\@marginfalse}
 
+\DeclareOption*{%
+  \PassOptionsToClass{\CurrentOption}{article}%
+}
+
 \ExecuteOptions{overlapped,centered}
 \ProcessOptions\relax
+
+\LoadClass{article}
 
 \nofiles	     % resume's don't need .aux files
 
