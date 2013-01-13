@@ -51,10 +51,12 @@
       \detokenize{%
         \expandafter\newcommand\csname only@multitex\endcsname[2]}%
         {%
-          \noexpand\ifincsvlist{#2}{\@pound1}{%
-            \@pound2%
-          }{%
-          }%
+          \noexpand\renewcommand*{\noexpand\do}[1]{%
+            \noexpand\ifstrequal{\@pound\@pound1}{#2}%
+              {\@pound2\noexpand\listbreak}%
+              {}%
+            }%
+          \noexpand\docsvlist{\@pound1}%
         }
       \detokenize{%
         \expandafter\let\csname only@other@multitex\expandafter\endcsname\csname only@multitex\endcsname
@@ -68,7 +70,7 @@
 \newcommand{\multitex@pre@writetothis}{\immediate\openout\multitex@temp\multitex@tempfilename}%\long\gdef\multitex@thiscode{}}%
 \newcommand{\multitex@writetothis}[1]{\immediate\write\multitex@temp{#1}}%\ExpandNext{\long\gappto\multitex@thiscode}{\expandnext{\relax\scantokens}{#1}}}%
 \newcommand{\multitex@post@writetothis}{\immediate\closeout\multitex@temp\relax\input{\multitex@tempfilename}}%\show\multitex@thiscode\multitex@thiscode\relax}%
-\newcommand{\multitex@writetoothers}[2][\the\multitex@names]{\expandafter\forcsvloop\expandafter{#1}\do{\multitex@write{##1}{#2}}}
+\newcommand{\multitex@writetoothers}[2][\the\multitex@names]{\ExpandNext{\forcsvloop}{#1}\do{\multitex@write{##1}{#2}}}
 \newcommand{\DeclareDocumentClass}[1]{\multitex@writetoothers{\detokenize{#1}}}
 \AtBeginDocument{\multitex@writetoothers{\detokenize{\begin{document}}}}
 \AtEndDocument{\multitex@writetoothers{\detokenize{\end{document}}}}
@@ -183,16 +185,16 @@
     Current G.P.A. 4.6/5.0 \\
 \end{multitex}
 \begin{multitex}[\resumefiles]%
-    Relevant Coursework: Performance Engineering of Software Systems (current), Statistical Physics, Quantum Physics, Topology, Analysis, Waves \& Vibrations, Special Relativity% and the Physics of Spacetime%
+    Relevant Coursework: Performance Engineering of Software Systems, Statistical Physics, Quantum Physics, Topology, Analysis, Waves \& Vibrations, Special Relativity% and the Physics of Spacetime%
 		, Algebra
 \end{multitex}
 \begin{multitex*}[\cvfiles]%
 		Coursework:
 		\begin{itemize}
-			\item Physics: Electromagnetism II (current), Statistical Physics I \& II, Quantum Physics I, II, \& III, Classical Mechanics II, Waves and Vibrations, Special Relativity and the Physics of Spacetime
-			\item Mathematics: Algebraic Topology I (current), Seminar in Topology, Introduction to Topology, Real Analysis, Abstract Algebra I \& II, Differential Equations, Calculus I \& II, Linear Algebra
-			\item Other Sciences: Performance Engineering of Software Systems (current), Structure and Interpretation of Computer Programs, Introductory Biology, Introductory Chemistry, Design a Concentrated Solar Power Water Heater (seminar)
-			\item Other: Metaphysics (current), Introduction to Musical Composition, Capitalism and Its Critics, Moral Psychology, Philosophy of Quantum Mechanics, Moral Problems and the Good Life, Philosophy of Love
+			\item Physics: Statistical Physics I \& II, Quantum Physics I, II, \& III, Classical Mechanics II, Waves and Vibrations, Special Relativity and the Physics of Spacetime
+			\item Mathematics: Seminary in Logic (current), Paradox and Infinity (current), Category Theory for Scientists (current), Algebraic Topology I, Seminar in Topology, Introduction to Topology, Real Analysis, Abstract Algebra I \& II, Differential Equations, Calculus I \& II, Linear Algebra
+			\item Other Sciences: Performance Engineering of Software Systems, Structure and Interpretation of Computer Programs, Introductory Biology, Introductory Chemistry, Design a Concentrated Solar Power Water Heater (seminar)
+			\item Other: The Art and Science of Happiness (current), Metaphysics, Introduction to Musical Composition, Capitalism and Its Critics, Moral Psychology, Philosophy of Quantum Mechanics, Moral Problems and the Good Life, Philosophy of Love
 		\end{itemize}
 \end{multitex*}
 
@@ -291,7 +293,7 @@
 \begin{multitex}
     \begin{itemize}
       \item
-        Mathematics Honor Society: Commack High School
+        Mathematics Honor Society (Commack High School)
       \item
         Collection of 12 original K'NEX synagogue models exhibited in various museums (2004--2008)
       \onlymultitex*{\highschoolfiles}{%
@@ -314,9 +316,11 @@
             December 2004 --- Displayed at Suffolk Y-JCC in Commack
         \end{itemize}
         }
-      \onlymultitex*{\highschoolfiles}{%
+      \onlymultitex*{\cvfiles}{
       \item
         Graduated Cum Laude from Commack High School (June 2009)
+      }
+      \onlymultitex*{\highschoolfiles}{%
       \item
         Commack High School Outstanding Academic Performance (June 2009)
       \item
@@ -500,9 +504,9 @@
       \item Dancing, especially contra and square dancing
       \item Psychology
       \item Hiking
-      \onlymultitex*{\highschoolfiles}{
-      \item MIT Mystery Puzzle Hunt, Participated on Manic Sages Team, January 2008--2012
-        }
+      %\onlymultitex*{\highschoolfiles}{
+      \item MIT Mystery Hunt, Participated on Manic Sages Team, January 2008--2012
+      %  }
     \end{itemize}
 \end{multitex*}
 
