@@ -56,7 +56,8 @@
               {\@pound2\noexpand\listbreak}%
               {}%
             }%
-          \noexpand\docsvlist{\@pound1}%
+          {\noexpand\edef\noexpand\foo{\@pound1}\noexpand\expandafter}%
+          \noexpand\expandafter\noexpand\docsvlist\noexpand\expandafter{\noexpand\foo}%
         }
       \detokenize{%
         \expandafter\let\csname only@other@multitex\expandafter\endcsname\csname only@multitex\endcsname
