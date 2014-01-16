@@ -5,6 +5,7 @@
 \usepackage{etoolbox}[2011/01/03]
 \usepackage{etextools}
 \usepackage{xifthen,verbatim}
+\usepackage{hyperref}
 
 
 \makeatletter
@@ -181,6 +182,7 @@
 \section{\textsc{Education}}
     \textbf{Massachusetts Institute of Technology}, Cambridge, MA  \\
     Began Doctorate of Philosophy in Computer Science in September 2013 \\
+    \onlymultitex*{\cvfiles}{Research Interests: Homotopy Type Theory, Category Theory, Program Synthesis, Type Theory \\}
     Current G.P.A. 5.0/5.0 \\
     \\
     Bachelor of Science, June 2013   \\
@@ -190,13 +192,15 @@
     \\
 \end{multitex}
 \begin{multitex}[\resumefiles]%
-    Relevant Coursework: Foundations of Program Analysis (current), Performance Engineering of Software Systems, Statistical Physics, Quantum Physics, Topology, Analysis, Waves \& Vibrations, Special Relativity% and the Physics of Spacetime%
-		, Algebra
+    Relevant Coursework: %Foundations of
+        Program Analysis, Performance Engineering of Software% Systems
+        , Statistical Physics, Quantum Physics, Topology, Analysis, Waves \& Vibrations, Special Relativity% and the Physics of Spacetime%
+        , Algebra
 \end{multitex}
 \begin{multitex*}[\cvfiles]%
 		Coursework:
 		\begin{itemize}
-			\item Computer Science: Foundations of Program Analysis (current), Performance Engineering of Software Systems, Structure and Interpretation of Computer Programs
+			\item Computer Science: Foundations of Program Analysis, Performance Engineering of Software Systems, Structure and Interpretation of Computer Programs
 			\item Mathematics: Paradox and Infinity, Category Theory for Scientists, Algebraic Topology I, Seminar in Topology, Introduction to Topology, Real Analysis, Abstract Algebra I \& II, Differential Equations, Calculus I \& II, Linear Algebra
 			\item Physics: Statistical Physics I \& II, Quantum Physics I, II, \& III, Classical Mechanics II, Waves and Vibrations, Special Relativity and the Physics of Spacetime
 			\item Other Sciences: Introductory Biology, Introductory Chemistry, Design a Concentrated Solar Power Water Heater (seminar)
@@ -218,7 +222,7 @@
   \begin{position}
     \begin{itemize}
       \item Researching program synthesis as it applies to the Bedrock compiler, with Adam Chlipala
-      \item Collaboratively working on implementing one of the world's first algorithm-level-optimizing compilers      
+      \item Collaboratively working on implementing one of the world's first algorithm-level-optimizing compilers
     \end{itemize}
   \end{position}
 \end{multitex*}
@@ -229,7 +233,7 @@
   \location{Cambridge, MA}
   \begin{position}
     \begin{itemize}
-      \item Entered a significant amount of category theory into the automated proof assistant Coq \onlymultitex*{\cvfiles}{(\url{https://github.com/JasonGross/HoTT-categories})}
+      \item Entered a significant amount of category theory into the automated proof assistant Coq \onlymultitex*{\cvfiles}{(\url{https://github.com/HoTT/HoTT/tree/master/theories/categories})}
       \item Working on building an interface for databases and database migration on top of category theory in Coq with David Spivak and Adam Chlipala
       \onlymultitex*{\cvfiles}{\item Presented ``Building Database Management on top of Category Theory in Coq'', January 25, 2013, POPL 2013: 40th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages}
     \end{itemize}
@@ -242,7 +246,7 @@
   \begin{position}
     \begin{itemize}
       \item Designed from scratch a data collection webpage, collected data for, and helped with research on categorical and transfer learning (\url{http://jgross.scripts.mit.edu/alphabets/}).
-			\item Co-author of ``One shot learning of simple visual concepts''\onlymultitex*{\cvfiles}{ published in \emph{Proceedings of the 33rd Annual Meeting of the Cognitive Science Society}}.
+            \item Co-author of ``One shot learning of simple visual concepts''\onlymultitex*{\cvfiles}{ published in \emph{Proceedings of the 33rd Annual Meeting of the Cognitive Science Society}}.
     \end{itemize}
   \end{position}
 
@@ -261,14 +265,14 @@
 
 \begin{multitex*}[\cvfiles]
   \employer{MIT OCW}
-	\dates{May--August 2010}
-	\title{}
-	\location{Cambridge, MA}
-	\begin{position}
-		\begin{itemize}
-			\item Evaluated and categorized videos of Walter Lewin solving physics problems for updating the 8.01 (Physics I) OpenCourseWare (OCW) website.
-		\end{itemize}
-	\end{position}
+    \dates{May--August 2010}
+    \title{}
+    \location{Cambridge, MA}
+    \begin{position}
+        \begin{itemize}
+            \item Evaluated and categorized videos of Walter Lewin solving physics problems for updating the 8.01 (Physics I) OpenCourseWare (OCW) website.
+        \end{itemize}
+    \end{position}
 
 \end{multitex*}
 
@@ -305,7 +309,7 @@
       \item
         Proficient skills -- Coq, Python, Java, JavaScript, Mathematica, \TeX{} macro language, BASIC
       \item
-        Working knowledge -- C, C++, Scheme, Haskell, Matlab, HTML, CSS, git, \LaTeX{}, Agda
+        Working knowledge -- Agda, C, C++, Scheme, Haskell, Matlab, HTML, CSS, git, \LaTeX{}
       \item
         Basic knowledge -- Idris, OCaml, Ur/Web
     \end{itemize}
@@ -409,7 +413,7 @@
       \item
         AIME (American Invitational Mathematics Examination)
         \begin{itemize}
-          \item 
+          \item
             2009 ($12^\text{th}$ grade) - ???
           \item
             2008 ($11^\text{th}$ grade) - score of 8
@@ -452,7 +456,7 @@
           \item
             2004 ($7^\text{th}$ grade) - $1^\text{st}$ place in county
         \end{itemize}
-      \item   
+      \item
         Suffolk County Mathematics Teachers Association (SCMTA) Tournament
         \begin{itemize}
           \item
@@ -520,6 +524,7 @@
       \item Project leader for MITeX (\url{http://mitex.mit.edu/}), an online interface for composing \LaTeX
       \onlymultitex*{\cvfiles,computer-science}{%
       \item Commiter to the SIPB BarnOwl project (\url{http://barnowl.mit.edu})
+      \item Co-maintainer of the homotopy type theory Coq repository (\href{https://github.com/HoTT/HoTT}{\texttt{HoTT/HoTT} on github})
       }
     \end{itemize}
 
