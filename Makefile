@@ -8,6 +8,6 @@ Resume.pdf: Resume.tex etextools.sty etoolbox.sty res.cls plainyr-rev.bst jason-
 	pdflatex --enable-write18 Resume.tex
 
 clean:
-	rm -f *.pdf Resume-*.tex *.log *.out *.mtx *.aux *.bbl *.blg *.run.xml
+	rm -f *.pdf Resume-*.tex *.log *.out *.mtx *.aux *.bbl *.blg *.run.xml *.bcf *-blx.bib jason-gross.bib
 
 .PHONY: all clean

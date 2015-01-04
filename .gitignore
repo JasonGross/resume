@@ -11,6 +11,9 @@
 *.bbl
 *.blg
 *.run.xml
+*-blx.bib
+*.bcf
+jason-gross.bib
 etextools.sty
 Resume-*.tex
 Curriculum-vitae-*.tex
