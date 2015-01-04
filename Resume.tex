@@ -3,11 +3,14 @@
 
 \documentclass[11pt]{res}
 \usepackage{etoolbox}[2011/01/03]
+\let\origforlistloop\forlistloop
 \usepackage{etextools}
+\let\forlistloop\origforlistloop
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
-%\addbibresource{personal-website/jason-gross.bib}
-
+\usepackage[backend=bibtex,sorting=ydnt]{biblatex}
+\addbibresource{jason-gross.bib}
+  
 \makeatletter
 
 
@@ -26,8 +29,7 @@
   \immediate\expandafter\closeout\csname @multitex@#1@file\endcsname
   \ifmultitexcompile
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
-    \immediate\write18{bibtex \csname @multitex@#1@auxname\endcsname}%
-    \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
+    \immediate\write18{bibtex \csname @multitex@#1@barename\endcsname}%
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
   \fi
 }
@@ -42,6 +44,7 @@
   \expandafter\xdef\csname @multitex@#2\endcsname{\ifempty{#1}{#2}{#1}}
   \expandafter\xdef\csname @multitex@#2@name\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.tex"}
   \expandafter\xdef\csname @multitex@#2@auxname\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.aux"}
+  \expandafter\xdef\csname @multitex@#2@barename\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname"}
   \expandafter\newwrite\csname @multitex@#2@file\endcsname
   \immediate\expandafter\openout\csname @multitex@#2@file\expandafter\endcsname\csname @multitex@#2@name\endcsname
   \AtBeginDocument{%
@@ -122,11 +125,15 @@
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
   %\usepackage{newcent}   % uses new century schoolbook postscript font
   \usepackage{etoolbox}[2011/01/03]
+  \let\origforlistloop\forlistloop
   \usepackage{etextools}
+  \let\forlistloop\origforlistloop
   \usepackage[margin=1in,top=0.5in,bottom=0.5in]{geometry}
   \usepackage{hyperref}
   \usepackage{amsmath}
-  \bibliographystyle{plainyr-rev}
+  %\bibliographystyle{plainyr-rev}
+  \usepackage[backend=bibtex,sorting=ydnt]{biblatex}
+  \addbibresource{jason-gross.bib}
   \begin{format}
     \employer{l}\dates{r}\\
     \title{l}\location{r} \\
@@ -564,10 +571,10 @@
 \end{multitex}
 
 \begin{multitex*}[\cvfiles]
-  \renewcommand{\refname}{\textsc{Presentations and Publications}} 
-  \nocite{*}
-  \bibliography{personal-website/jason-gross}
-  %\printbibliography[title={\textsc{Presentations and Publications}}]
+\section{\textsc{Presentations and Publications}}
+  %\renewcommand{\refname}{\textsc{Presentations and Publications}} 
+  %\bibliography{personal-website/jason-gross}
+  \printbibliography[title={$\left.\right.$}]
 \end{multitex*}
 
 \begin{multitex}
