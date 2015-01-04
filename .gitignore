@@ -6,6 +6,11 @@
 .*.swp
 *.swp
 *.mtx
+*.aux
+*.out
+*.bbl
+*.blg
+*.run.xml
 etextools.sty
 Resume-*.tex
 Curriculum-vitae-*.tex
