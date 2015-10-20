@@ -8,7 +8,36 @@
 \let\forlistloop\origforlistloop
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
-\usepackage[backend=bibtex,sorting=ydnt,maxbibnames=99]{biblatex}
+\DeclareSortingScheme{ymdnt}{
+    \sort{
+        \field{presort}
+    }
+    \sort[final]{
+        \field{sortkey}
+    }
+    \sort[direction=descending]{
+        \field[strside=left,strwidth=4]{sortyear}
+        \field[strside=left,strwidth=4]{year}
+        \literal{9999}
+    }
+    \sort[direction=descending]{
+        \field{month}
+        \literal{9999}
+    }
+    \sort{
+        \field{sortname}
+        \field{author}
+        \field{editor}
+        \field{translator}
+        \field{sorttitle}
+        \field{title}
+    }
+    \sort{
+        \field{sorttitle}
+        \field{title}
+    }
+}
+\usepackage[backend=bibtex,sorting=ymdnt,maxbibnames=99]{biblatex}
   
 \makeatletter
 
