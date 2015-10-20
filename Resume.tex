@@ -8,6 +8,8 @@
 \let\forlistloop\origforlistloop
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
+
+\usepackage[backend=bibtex,maxbibnames=99]{biblatex}
 % http://tex.stackexchange.com/a/140641
 \DeclareSortingScheme{ymdnt}{
     \sort{
@@ -38,8 +40,8 @@
         \field{title}
     }
 }
-\usepackage[backend=bibtex,sorting=ymdnt,maxbibnames=99]{biblatex}
-  
+\ExecuteBibliographyOptions{sorting=ydnt}
+
 \makeatletter
 
 
@@ -161,7 +163,38 @@
   \usepackage{hyperref}
   \usepackage{amsmath}
   %\bibliographystyle{plainyr-rev}
-  \usepackage[backend=bibtex,sorting=ydnt,maxbibnames=99]{biblatex}
+  \usepackage[backend=bibtex,maxbibnames=99]{biblatex}
+% http://tex.stackexchange.com/a/140641
+\DeclareSortingScheme{ymdnt}{
+    \sort{
+        \field{presort}
+    }
+    \sort[final]{
+        \field{sortkey}
+    }
+    \sort[direction=descending]{
+        \field[strside=left,strwidth=4]{sortyear}
+        \field[strside=left,strwidth=4]{year}
+        \literal{9999}
+    }
+    \sort[direction=descending]{
+        \field{month}
+        \literal{9999}
+    }
+    \sort{
+        \field{sortname}
+        \field{author}
+        \field{editor}
+        \field{translator}
+        \field{sorttitle}
+        \field{title}
+    }
+    \sort{
+        \field{sorttitle}
+        \field{title}
+    }
+}
+\ExecuteBibliographyOptions{sorting=ydnt}
   \addbibresource{jason-gross.bib}
   \begin{format}
     \employer{l}\dates{r}\\
@@ -231,7 +264,7 @@
     \\
 \end{multitex}
 \begin{multitex}[\resumefiles]%
-    Relevant Coursework: %Computer Systems 
+    Relevant Coursework: %Computer Systems
         Security, %Foundations of
         Program Analysis, Performance Engineering of Software% Systems
         , Statistical Physics, Quantum% Physics
@@ -627,7 +660,7 @@
 
 \begin{multitex*}[\cvfiles]
 \section{\textsc{Presentations and Publications}}
-  %\renewcommand{\refname}{\textsc{Presentations and Publications}} 
+  %\renewcommand{\refname}{\textsc{Presentations and Publications}}
   %\bibliography{personal-website/jason-gross}
   \printbibliography[title={$\left.\right.$}]
 \end{multitex*}
