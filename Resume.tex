@@ -151,6 +151,8 @@
   \def\cvfiles{curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
   \def\highschoolfiles{curriculum-vitae-long}
   \def\mathfiles{mathematics,curriculum-vitae-mathematics}
+  \def\cvandmathfiles{mathematics,curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
+  \def\cvandcomputersciencefiles{computer-science,curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
   %\usepackage[utf8x]{inputenc}
   %\usepackage[T1]{fontenc}
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
@@ -300,7 +302,7 @@
     \end{itemize}
   \end{position}
 \end{multitex}
-\begin{multitex}
+\begin{multitex}[\cvandmathfiles]
   \employer{MIT}
   \dates{Fall 2009--Present}
   \title{Teacher}
@@ -308,11 +310,11 @@
   \begin{position}
     \begin{itemize}
       \item Taught classes on \LaTeX, philosophy, linear algebra, and quantum mechanics for MIT Educational Studies Program's Splash, Spark, and Summer HSSP (High School Studies Program)
-      \onlymultitex{\cvfiles,\mathfiles}{\item Teaching Assistant for 8.012 (Physics I) and 8.022 (Physics II) in Experimental Study Group}
+      \onlymultitex{\cvandmathfiles}{\item Teaching Assistant for 8.012 (Physics I) and 8.022 (Physics II) in Experimental Study Group}
     \end{itemize}
   \end{position}
 \end{multitex}
-\begin{multitex*}[\cvfiles]
+\begin{multitex*}[\cvandcomputersciencefiles]
   \employer{MIT}
   \dates{September 2015--December 2015}
   \title{TA for 6.172 (Performance Engineering% of Software% Systems
@@ -321,6 +323,7 @@
   \begin{position}
     \begin{itemize}
       \item Created and led recitations, taught students, and helped run class
+      \item Analyzed and explained assembly output of \texttt{gcc -O3} to teach vectorization
     \end{itemize}
   \end{position}
 \end{multitex*}
