@@ -1,3 +1,5 @@
+.PHONY: all biblatex
+
 all: Resume.pdf
 
 # "-e '" + "' -e '".join(['s/month = {%s},/month = {%d},/g' % (datetime.date(2015, i, 1).strftime('%B'), i) for i in range(1,13)]) + "'"
@@ -14,3 +16,15 @@ clean:
 	rm -f *.pdf Resume-*.tex *.log *.out *.mtx *.aux *.bbl *.blg *.run.xml *.bcf *-blx.bib jason-gross.bib
 
 .PHONY: all clean
+
+biblatex: biblatex.sty
+
+FIND_ARGS = -name "*.sty" -o -name "*.tex" -o -name "*.map" -o -name "*.afm" -o -name "*.enc" -o -name "*.mf" -o -name "*.pfm" -o -name "*.pro" -o -name "*.tfm" -o -name "*.pfb" -o -name "*.fd" -o -name "*.def" -o -name "*.csf" -o -name "*.bst" -o -name "*.cfg" -o -name "*.cbx" -o -name "*.bbx" -o -name "*.lbx" -o -name "*.dtx" -o -name "*.ins" -o -name "*.600pk" -o -name "*.cmap" -o -name "*.drv"
+biblatex.sty: biblatex/latex/biblatex.sty
+	find biblatex $(FIND_ARGS) | xargs cp -t ./
+
+biblatex/latex/biblatex.sty: biblatex.zip
+	unzip biblatex.zip
+
+biblatex.zip:
+	wget -N "http://mirrors.ctan.org/macros/latex/contrib/biblatex.zip"
