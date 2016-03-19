@@ -6,10 +6,6 @@
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
 \usepackage{etoolbox}[2011/01/03]
-\let\origforlistloop\forlistloop
-\usepackage{etextools}
-\let\eifempty\ifempty
-\let\forlistloop\origforlistloop
 
 
 \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
@@ -50,6 +46,16 @@
 
 \makeatletter
 
+\let\origifempty\ifempty
+\undef\ifempty
+\let\origforlistloop\forlistloop
+\usepackage{etextools}
+\let\eifempty\ifempty
+\let\ifempty\origifempty
+\let\forlistloop\origforlistloop
+\def\preetextools{\let\ifempty\eifempty}
+
+
 \newif\ifmultitexcompile
 \multitexcompiletrue
 
@@ -75,7 +81,7 @@
 }
 \newcommand{\DeclareFile}[2][]{
   \global\multitex@names=\expandafter{\the\multitex@names,#2}
-  \expandafter\xdef\csname @multitex@#2\endcsname{\eifempty{#1}{#2}{#1}}
+  \expandafter\xdef\csname @multitex@#2\endcsname{\xifempty{#1}{#2}{#1}}
   \expandafter\xdef\csname @multitex@#2@name\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.tex"}
   \expandafter\xdef\csname @multitex@#2@auxname\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.aux"}
   \expandafter\xdef\csname @multitex@#2@barename\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname"}
@@ -113,7 +119,7 @@
 \newcommand{\multitex@pre@writetothis}{\immediate\openout\multitex@temp\multitex@tempfilename}%\long\gdef\multitex@thiscode{}}%
 \newcommand{\multitex@writetothis}[1]{\immediate\write\multitex@temp{#1}}%\ExpandNext{\long\gappto\multitex@thiscode}{\expandnext{\relax\scantokens}{#1}}}%
 \newcommand{\multitex@post@writetothis}{\immediate\closeout\multitex@temp\relax\input{\multitex@tempfilename}}%\show\multitex@thiscode\multitex@thiscode\relax}%
-\newcommand{\multitex@writetoothers}[2][\the\multitex@names]{\ExpandNext{\forcsvloop}{#1}\do{\multitex@write{##1}{#2}}}
+\newcommand{\multitex@writetoothers}[2][\the\multitex@names]{{\preetextools\ExpandNext{\forcsvloop}{#1}\do{\multitex@write{##1}{#2}}}}
 \newcommand{\DeclareDocumentClass}[1]{\multitex@writetoothers{\detokenize{#1}}}
 \AtBeginDocument{\multitex@writetoothers{\detokenize{\begin{document}}}}
 \AtEndDocument{\multitex@writetoothers{\detokenize{\end{document}}}}
@@ -165,10 +171,6 @@
   \usepackage{hyperref}
   \usepackage{amsmath}
   \usepackage{etoolbox}[2011/01/03]
-  \let\origforlistloop\forlistloop
-  \usepackage{etextools}
-  \let\eifempty\ifempty
-  \let\forlistloop\origforlistloop
   %\bibliographystyle{plainyr-rev}
   \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641
@@ -206,6 +208,14 @@
     }
 }
   \addbibresource{jason-gross.bib}
+  \let\origifempty\ifempty
+  \let\origforlistloop\forlistloop
+  \undef\ifempty
+  \usepackage{etextools}
+  \let\eifempty\ifempty
+  \let\ifempty\origifempty
+  \let\forlistloop\origforlistloop
+  \def\preetextools{\let\ifempty\eifempty}
   \begin{format}
     \employer{l}\dates{r}\\
     \title{l}\location{r} \\
