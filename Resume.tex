@@ -208,14 +208,19 @@
     }
 }
   \addbibresource{jason-gross.bib}
-  \let\origifempty\ifempty
-  \let\origforlistloop\forlistloop
-  \undef\ifempty
-  \usepackage{etextools}
-  \let\eifempty\ifempty
-  \let\ifempty\origifempty
-  \let\forlistloop\origforlistloop
-  \def\preetextools{\let\ifempty\eifempty}
+  \makeatletter
+  \@ifpackageloaded{etextools}{%
+  }{%
+    \let\origifempty\ifempty
+    \let\origforlistloop\forlistloop
+    \undef\ifempty
+    \usepackage{etextools}
+    \let\eifempty\ifempty
+    \let\ifempty\origifempty
+    \let\forlistloop\origforlistloop
+    \def\preetextools{\let\ifempty\eifempty}
+  }%
+  \makeatother
   \begin{format}
     \employer{l}\dates{r}\\
     \title{l}\location{r} \\
