@@ -10,7 +10,7 @@
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
 
-\usepackage[backend=biber,maxbibnames=99]{biblatex}
+\usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641
 \DeclareSortingScheme{ymdnt}{
     \sort{
@@ -24,9 +24,9 @@
         \field{year}
         \literal{9999}
     }
-    \sort[direction=ascending]{
+    \sort[direction=descending]{
         \field[padside=left,padwidth=2,padchar=0]{month}
-        \literal{00}
+        \literal{99}
     }
     \sort[direction=descending]{
         \field[padside=left,padwidth=2,padchar=0]{day}
@@ -45,7 +45,6 @@
         \field{title}
     }
 }
-\ExecuteBibliographyOptions{sorting=ydnt}
 
 \makeatletter
 
@@ -66,7 +65,6 @@
   \ifmultitexcompile
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
     \immediate\write18{biber \csname @multitex@#1@barename\endcsname}%
-    \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
   \fi
 }
@@ -163,6 +161,7 @@
   %\usepackage[T1]{fontenc}
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
   %\usepackage{newcent}   % uses new century schoolbook postscript font
+  \usepackage[T1]{fontenc}
   \usepackage{etoolbox}[2011/01/03]
   \let\origforlistloop\forlistloop
   \usepackage{etextools}
@@ -171,7 +170,7 @@
   \usepackage{hyperref}
   \usepackage{amsmath}
   %\bibliographystyle{plainyr-rev}
-  \usepackage[backend=biber,maxbibnames=99]{biblatex}
+  \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641
 \DeclareSortingScheme{ymdnt}{
     \sort{
@@ -185,9 +184,9 @@
         \field{year}
         \literal{9999}
     }
-    \sort[direction=ascending]{
+    \sort[direction=descending]{
         \field[padside=left,padwidth=2,padchar=0]{month}
-        \literal{00}
+        \literal{99}
     }
     \sort[direction=descending]{
         \field[padside=left,padwidth=2,padchar=0]{day}
@@ -206,7 +205,6 @@
         \field{title}
     }
 }
-\ExecuteBibliographyOptions{sorting=ydnt}
   \addbibresource{jason-gross.bib}
   \begin{format}
     \employer{l}\dates{r}\\
