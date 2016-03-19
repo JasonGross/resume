@@ -6,12 +6,10 @@
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
 \usepackage{etoolbox}[2011/01/03]
-\let\origifempty\ifempty
 \let\origforlistloop\forlistloop
 \usepackage{etextools}
 \let\eifempty\ifempty
 \let\forlistloop\origforlistloop
-\let\ifempty\origifempty
 
 
 \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
@@ -167,12 +165,10 @@
   \usepackage{hyperref}
   \usepackage{amsmath}
   \usepackage{etoolbox}[2011/01/03]
-  \let\origifempty\ifempty
   \let\origforlistloop\forlistloop
   \usepackage{etextools}
   \let\eifempty\ifempty
   \let\forlistloop\origforlistloop
-  \let\ifempty\origifempty
   %\bibliographystyle{plainyr-rev}
   \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641

@@ -44,7 +44,7 @@ REQUIRED_GRAPHICS_DTX_INS_STY = #graphics.sty
 GENERIC_TEX_INS_STY = #ifxetex.sty
 ALL_TEX_INS_STY = $(GENERIC_TEX_INS_STY)
 BASE_DTX_INS_STY = #ifthen.sty
-BASE_DTX_INS_DOWNLOAD = #ltoutenc.dtx classes.dtx $(BASE_DTX_INS_STY:.sty=.dtx)
+BASE_DTX_INS_DOWNLOAD = $(BASE_DTX_INS_STY:.sty=.dtx) #ltoutenc.dtx classes.dtx
 DTX_INS_STY = #filecontents.sty polytable.sty xcolor.sty minted.sty ifplatform.sty
 ALL_DTX_INS_STY = $(DTX_INS_STY) $(BASE_DTX_INS_STY)
 SIMPLE_TEX = #ifmtarg.tex
@@ -55,7 +55,7 @@ GENERIC_TEX = #xstring.tex
 REQUIRED_DTX_INS_ZIPS = #graphics.zip tools.zip
 REQUIRED_ZIPS = $(REQUIRED_DTX_INS_ZIPS)
 SIMPLE_CONTRIB_ZIPS = biblatex.zip #cmap.zip mmap.zip
-SIMPLE_CONTRIB_DTX_INS_ZIPS = #hyperref.zip
+SIMPLE_CONTRIB_DTX_INS_ZIPS = hyperref.zip
 CONTRIB_ZIPS = $(SIMPLE_CONTRIB_ZIPS) $(SIMPLE_CONTRIB_DTX_INS_ZIPS)
 SIMPLE_ZIPS = $(SIMPLE_CONTRIB_ZIPS) #tipa.zip
 SIMPLE_DTX_ZIPS = #stmaryrd.zip
