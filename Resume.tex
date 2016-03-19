@@ -2,6 +2,7 @@
 % This file uses the resume document class (res.cls)
 
 \documentclass[11pt]{res}
+\usepackage[T1]{fontenc}
 \usepackage{etoolbox}[2011/01/03]
 \let\origforlistloop\forlistloop
 \usepackage{etextools}
@@ -9,7 +10,7 @@
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
 
-\usepackage[backend=bibtex,maxbibnames=99]{biblatex}
+\usepackage[backend=biber,maxbibnames=99]{biblatex}
 % http://tex.stackexchange.com/a/140641
 \DeclareSortingScheme{ymdnt}{
     \sort{
@@ -19,13 +20,17 @@
         \field{sortkey}
     }
     \sort[direction=descending]{
-        \field[strside=left,strwidth=4]{sortyear}
-        \field[strside=left,strwidth=4]{year}
+        \field{sortyear}
+        \field{year}
         \literal{9999}
     }
+    \sort[direction=ascending]{
+        \field[padside=left,padwidth=2,padchar=0]{month}
+        \literal{00}
+    }
     \sort[direction=descending]{
-        \field{month}
-        \literal{9999}
+        \field[padside=left,padwidth=2,padchar=0]{day}
+        \literal{99}
     }
     \sort{
         \field{sortname}
@@ -60,7 +65,8 @@
   \immediate\expandafter\closeout\csname @multitex@#1@file\endcsname
   \ifmultitexcompile
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
-    \immediate\write18{bibtex \csname @multitex@#1@barename\endcsname}%
+    \immediate\write18{biber \csname @multitex@#1@barename\endcsname}%
+    \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
     \immediate\write18{pdflatex \csname @multitex@#1@name\endcsname}%
   \fi
 }
@@ -165,7 +171,7 @@
   \usepackage{hyperref}
   \usepackage{amsmath}
   %\bibliographystyle{plainyr-rev}
-  \usepackage[backend=bibtex,maxbibnames=99]{biblatex}
+  \usepackage[backend=biber,maxbibnames=99]{biblatex}
 % http://tex.stackexchange.com/a/140641
 \DeclareSortingScheme{ymdnt}{
     \sort{
@@ -175,13 +181,17 @@
         \field{sortkey}
     }
     \sort[direction=descending]{
-        \field[strside=left,strwidth=4]{sortyear}
-        \field[strside=left,strwidth=4]{year}
+        \field{sortyear}
+        \field{year}
         \literal{9999}
     }
+    \sort[direction=ascending]{
+        \field[padside=left,padwidth=2,padchar=0]{month}
+        \literal{00}
+    }
     \sort[direction=descending]{
-        \field{month}
-        \literal{9999}
+        \field[padside=left,padwidth=2,padchar=0]{day}
+        \literal{99}
     }
     \sort{
         \field{sortname}
