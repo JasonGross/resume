@@ -25,7 +25,7 @@ jason-gross.bib: publications/jason-gross.bib
 Resume.pdf: Resume.tex res.cls jason-gross.bib
 	pdflatex --enable-write18 -synctex=1 Resume.tex
 	biber Resume
-	pdflatex --enable-write18 -synctex=1 -interaction=nonstopmode Resume.tex 2>\dev\null >\dev\null
+	pdflatex --enable-write18 -synctex=1 -interaction=nonstopmode Resume.tex 2>/dev/null >/dev/null
 	pdflatex --enable-write18 -synctex=1 Resume.tex
 
 clean:
