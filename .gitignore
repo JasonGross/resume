@@ -19,6 +19,7 @@
 .*.swp
 *.swp
 *.synctex.gz
+*.synctex.gz(busy)
 biblatex*.sty
 Curriculum-vitae-*.tex
 Curriculum-Vitae-*.tex
