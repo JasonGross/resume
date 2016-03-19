@@ -3,12 +3,16 @@
 
 \documentclass[11pt]{res}
 \usepackage[T1]{fontenc}
-\usepackage{etoolbox}[2011/01/03]
-\let\origforlistloop\forlistloop
-\usepackage{etextools}
-\let\forlistloop\origforlistloop
 \usepackage{xifthen,verbatim}
 \usepackage{hyperref}
+\usepackage{etoolbox}[2011/01/03]
+\let\origifempty\ifempty
+\let\origforlistloop\forlistloop
+\usepackage{etextools}
+\let\eifempty\ifempty
+\let\forlistloop\origforlistloop
+\let\ifempty\origifempty
+
 
 \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641
@@ -48,9 +52,6 @@
 
 \makeatletter
 
-
-
-
 \newif\ifmultitexcompile
 \multitexcompiletrue
 
@@ -76,7 +77,7 @@
 }
 \newcommand{\DeclareFile}[2][]{
   \global\multitex@names=\expandafter{\the\multitex@names,#2}
-  \expandafter\xdef\csname @multitex@#2\endcsname{\ifempty{#1}{#2}{#1}}
+  \expandafter\xdef\csname @multitex@#2\endcsname{\eifempty{#1}{#2}{#1}}
   \expandafter\xdef\csname @multitex@#2@name\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.tex"}
   \expandafter\xdef\csname @multitex@#2@auxname\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname.aux"}
   \expandafter\xdef\csname @multitex@#2@barename\endcsname{"\jobname\multitex@separator\csname @multitex@#2\endcsname"}
@@ -162,13 +163,16 @@
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
   %\usepackage{newcent}   % uses new century schoolbook postscript font
   \usepackage[T1]{fontenc}
-  \usepackage{etoolbox}[2011/01/03]
-  \let\origforlistloop\forlistloop
-  \usepackage{etextools}
-  \let\forlistloop\origforlistloop
   \usepackage[margin=1in,top=0.5in,bottom=0.5in]{geometry}
   \usepackage{hyperref}
   \usepackage{amsmath}
+  \usepackage{etoolbox}[2011/01/03]
+  \let\origifempty\ifempty
+  \let\origforlistloop\forlistloop
+  \usepackage{etextools}
+  \let\eifempty\ifempty
+  \let\forlistloop\origforlistloop
+  \let\ifempty\origifempty
   %\bibliographystyle{plainyr-rev}
   \usepackage[backend=biber,maxbibnames=99,sorting=ymdnt]{biblatex}
 % http://tex.stackexchange.com/a/140641
