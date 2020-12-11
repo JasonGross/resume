@@ -157,8 +157,9 @@
 
 \begin{multitex}
   \def\resumefiles{mathematics,computer-science}
-  \def\cvfiles{curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
+  \def\cvshortfiles{curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science}
   \def\cvlongfiles{curriculum-vitae-long}
+  \edef\cvfiles{\cvshortfiles,\cvlongfiles}
   \def\highschoolfiles{curriculum-vitae-long}
   \def\mathfiles{mathematics,curriculum-vitae-mathematics}
   \def\cvandmathfiles{mathematics,curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
@@ -209,6 +210,7 @@
     }
 }
   \addbibresource{jason-gross.bib}
+  \DeclareBibliographyCategory{exclude}
   \makeatletter
   \@ifpackageloaded{etextools}{%
   }{%
@@ -721,10 +723,14 @@
   \nocite{*}
 \end{multitex}
 
-\begin{multitex*}[\cvfiles]
-\section{\textsc{Presentations and Publications}}
-  %\renewcommand{\refname}{\textsc{Presentations and Publications}}
-  %\bibliography{personal-website/jason-gross}
+\begin{multitex*}[\cvshortfiles]
+  \section{\textsc{Selected Presentations and Publications}}
+  \addtocategory{exclude}{Evaluation2021Huhmann}
+  \printbibliography[title={$\left.\right.$},notcategory=exclude]
+\end{multitex*}
+
+\begin{multitex*}[\cvlongfiles]
+  \section{\textsc{Presentations and Publications}}
   \printbibliography[title={$\left.\right.$}]
 \end{multitex*}
 
