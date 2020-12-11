@@ -162,8 +162,11 @@
   \edef\cvfiles{\cvshortfiles,\cvlongfiles}
   \def\highschoolfiles{curriculum-vitae-long}
   \def\mathfiles{mathematics,curriculum-vitae-mathematics}
-  \def\cvandmathfiles{mathematics,curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
-  \def\cvandcomputersciencefiles{computer-science,curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science,curriculum-vitae-long}
+  \edef\cvlongandmathfiles{\mathfiles,curriculum-vitae-long}
+  \edef\cvandmathfiles{\cvlongandmathfiles,curriculum-vitae,curriculum-vitae-computer-science}
+  \def\computersciencefiles{computer-science,curriculum-vitae-computer-science}
+  \edef\cvlongandcomputersciencefiles{\computersciencefiles,curriculum-vitae-long}
+  \edef\cvandcomputersciencefiles{curriculum-vitae,curriculum-vitae-mathematics,\cvlongandcomputersciencefiles}
   %\usepackage[utf8x]{inputenc}
   %\usepackage[T1]{fontenc}
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
@@ -289,9 +292,9 @@
     \\
     Bachelor of Science in Mathematics and Physics, June 2013   \\
     G.P.A. 4.6/5.0 \\
-    \\
 \end{multitex}
 \begin{multitex}[\resumefiles]%
+    \\
     Relevant Coursework: %Computer Systems
         Security, %Foundations of
         Program Analysis, Performance Engineering of Software% Systems
@@ -300,6 +303,7 @@
         , \mbox{Algebra}% force no hyphenation
 \end{multitex}
 \begin{multitex*}[\cvlongfiles]%
+    \\
 		Coursework:
 		\begin{itemize}
 			\item Computer Science: Inference and Information, Computer Systems Security, Geometric Computing, Foundations of Program Analysis, Performance Engineering of Software Systems, Structure and Interpretation of Computer Programs
@@ -317,7 +321,7 @@
 \section{\textsc{Experience}}
 \end{multitex}
 \begin{multitex}
-  \employer{MIT}
+  \employer{MIT CSAIL}
   \dates{September 2013--Present}
   \title{Researcher}
   \location{Cambridge, MA}
@@ -362,7 +366,7 @@
     \end{itemize}
   \end{position}
 \end{multitex*}
-\begin{multitex}[\cvandmathfiles]
+\begin{multitex}[\cvlongandmathfiles]
   \employer{MIT}
   \dates{Fall 2009--Present}
   \title{Teacher}
@@ -374,7 +378,7 @@
     \end{itemize}
   \end{position}
 \end{multitex}
-\begin{multitex*}[\cvandcomputersciencefiles]
+\begin{multitex*}[\cvlongandcomputersciencefiles]
   \employer{MIT}
   \dates{September 2015--December 2015}
   \title{TA for 6.172 (Performance Engineering% of Software% Systems
@@ -488,10 +492,21 @@
     \end{itemize}
 \end{multitex}
 
-\begin{multitex*}[\highschoolfiles,\cvlongfiles]
-\section{\textsc{Honors and Awards}}
+\begin{multitex}
+  \section{\textsc{Teaching}}
+  \begin{itemize}
+  \item Instructor at Monsoon Math: Classes on category theory, linear logic, and L\"ob's theorem
+  \item TA for 6.172 (Performance Engineering% of Software% Systems
+    ): Let recitations, analyzed and explained assembly output of \texttt{gcc -O3} to teach vectorization
+  \item TA for 8.012 (Physics I) and 8.022 (Physics II) in Experimental Study Group
+  \item Volunteer for MIT ESP: Classes on \LaTeX, philosophy, linear algebra, and quantum mechanics
+  \end{itemize}
 \end{multitex}
-\begin{multitex*}[\highschoolfiles,\cvlongfiles]
+
+\begin{multitex*}[\cvlongfiles]
+\section{\textsc{Honors and Awards}}
+\end{multitex*}
+\begin{multitex*}[\cvlongfiles]
     \begin{itemize}
       \onlymultitex*{\highschoolfiles,\cvfiles}{%
       \item
@@ -695,8 +710,10 @@
       \onlymultitex*{\cvfiles}{%
       \item SIPB (Student Information and Processing Board) Member
       }
+      \onlymultitex*{\cvlongfiles}{
       \item Was project leader for MITeX, an online interface for composing \LaTeX
-      \onlymultitex*{\cvfiles}{%
+      }
+      \onlymultitex*{\cvlongfiles}{%
       \item HMMT Solutions Editor (2010)
       }
       \item Canada/USA Mathcamp (Summers 2006--2009)
