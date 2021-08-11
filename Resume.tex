@@ -156,18 +156,21 @@
 \DeclareDocumentClass{\documentclass[11pt]{res}}
 
 \begin{multitex}
-  \def\resumefiles{mathematics,computer-science}
-  \def\cvshortfiles{curriculum-vitae,curriculum-vitae-mathematics,curriculum-vitae-computer-science}
-  \def\cvlongfiles{curriculum-vitae-long}
+  \edef\resumefiles{mathematics,computer-science}
+  \edef\cvshortspecialfiles{curriculum-vitae-mathematics,curriculum-vitae-computer-science}
+  \edef\cvshortfiles{curriculum-vitae,\cvshortspecialfiles}
+  \edef\cvlongfiles{curriculum-vitae-long}
   \edef\cvfiles{\cvshortfiles,\cvlongfiles}
-  \def\highschoolfiles{curriculum-vitae-long}
-  \def\mathfiles{mathematics,curriculum-vitae-mathematics}
+  \edef\highschoolfiles{curriculum-vitae-long}
+  \edef\mathfiles{mathematics,curriculum-vitae-mathematics}
   \edef\cvlongandmathfiles{\mathfiles,curriculum-vitae-long}
   \edef\cvandmathfiles{\cvlongandmathfiles,curriculum-vitae,curriculum-vitae-computer-science}
-  \def\computersciencefiles{computer-science,curriculum-vitae-computer-science}
+  \edef\computersciencefiles{computer-science,curriculum-vitae-computer-science}
   \edef\cvlongandcomputersciencefiles{\computersciencefiles,curriculum-vitae-long}
   \edef\cvandcomputersciencefiles{curriculum-vitae,curriculum-vitae-mathematics,\cvlongandcomputersciencefiles}
+  \edef\allexceptcv{\resumefiles,\cvshortspecialfiles}
   \edef\allexceptcvlongfiles{\resumefiles,\cvshortfiles}
+  \edef\allexceptcvandcvlongfiles{\resumefiles,\cvshortspecialfiles}
   %\usepackage[utf8x]{inputenc}
   %\usepackage[T1]{fontenc}
   %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
@@ -266,6 +269,8 @@
 
   \newsectionwidth{1em}
   \resumewidth=7.5in
+
+  \newcommand{\aswidthof}[2]{\rlap{#1}\hphantom{#2}}
 \end{multitex}
 \begin{multitex*}[\cvlongfiles]
   \name{\LARGE \bf \hspace{\stretch{1}} Jason Gross \hspace{\stretch{1}} \\
@@ -286,8 +291,10 @@
 
   \vspace{5cm}
 
-  \address{\textsc{Address}\\258 Prospect Street, Apt \# 1L\\Cambridge, MA 02139}
-  \address{\textsc{Contact}\\\href{mailto:jgross@mit.edu}{jgross@mit.edu}\\(631) 790-8962}
+  %\address{}%\textsc{Address}\\258 Prospect Street, Apt \# 1L\\Cambridge, MA 02139}
+  %\address{\textsc{Contact}\\\href{mailto:jgross@mit.edu}{jgross@mit.edu}\\(631) 790-8962}
+  \newcommand{\addressaswidth}[1]{\makebox[\widthof{\textsc{jgross@mit.edu}}][c]{#1}}
+  \address{\addressaswidth{\textsc{Contact}}\\\addressaswidth{\href{mailto:jgross@mit.edu}{jgross@mit.edu}}\\\addressaswidth{(631) 790-8962}}
 \end{multitex}
 
 \begin{document}
@@ -296,22 +303,13 @@
   \resume
 \end{multitex}
 
-\begin{multitex}[\allexceptcvlongfiles]
+\begin{multitex*}[\allexceptcvandcvlongfiles]
   \section{\textsc{Research Interests}}
-  Programming Languages, Formal Verification, Performance of Automation in Interactive Proof Assistants, Homotopy Type Theory, Category Theory, Program Synthesis, Cryptography
-
-  \section{\textsc{Key Contributions}}
-  Fiat Cryptography
-  \begin{itemize}
-    \item Collaboratively working on  one of the world's first algorithm-level-optimizing compilers
-    \item Collaboratively implemented proven-correct cryptographic code now used by Google Chrome, and in the majority of secure connects from web browsers
-  \end{itemize}
-
-  Interactive Proof Assistants
-  \begin{itemize}
-    \item Researching performance issues that impact scalability of automated verification
-    \item Reporting the plurality of bugs in the proof assistant Coq
-  \end{itemize}
+  Programming Languages, Formal Verification, Cryptography, Performance of Automation in Interactive Proof Assistants, Homotopy Type Theory, Category Theory, Program Synthesis
+\end{multitex*}
+\begin{multitex}[curriculum-vitae]
+  \section{\textsc{Research Interests}}
+  Programming Languages, Formal Verification, Cryptography, Performance Engineering
 \end{multitex}
 
 \begin{multitex}
@@ -380,7 +378,7 @@
 \end{multitex*}
 \begin{multitex*}[\cvlongfiles]
   \employer{MIT CSAIL}
-  \dates{September 2013--Present}
+  \dates{September 2013--February 2021}
   \title{Researcher}
   \location{Cambridge, MA}
   \begin{position}
@@ -393,11 +391,50 @@
 \end{multitex*}
 
 
-\begin{multitex}
+\begin{multitex}[\allexceptcv]
 \section{\textsc{Internships}}
 \end{multitex}
 
+\begin{multitex}[curriculum-vitae]
+\section{\textsc{Experience}}
+\end{multitex}
+
 \begin{multitex*}[\cvfiles]
+  \employer{Coq Development Team, INRIA}
+  \dates{June 2021--Present}
+  \title{Core Team Member}
+  \location{Nantes, France (remote)}
+  \begin{position}
+    \begin{itemize}
+      \item Stress Testing, Bug Reporting, Bug Minimizer, Compatibility Assurance
+      \item Engineering and maintaining a bug minimizer for automatically producing minimized stand-alone test-cases from buggy code
+    \end{itemize}
+  \end{position}
+
+  \employer{Machine Intelligence Research Institute}
+  \dates{February 2021--Present}
+  \title{Research Staff}
+  \location{Berkeley, CA (remote)}
+  \begin{position}
+    \begin{itemize}
+      \item Performing self-directed research into topics in basic programming language theory and math%ematics%, bringing insights and understanding back to my supervisor
+    \end{itemize}
+  \end{position}
+
+  \employer{MIT CSAIL}
+  \dates{September 2013--February 2021}
+  \title{PhD Researcher}
+  \location{Cambridge, MA}
+  \begin{position}
+    \begin{itemize}
+      \item Main Research Project: Fiat Cryptography (\href{https://github.com/mit-plv/fiat-crypto}{github.com/mit-plv/fiat-crypto})
+      \item Collaboratively worked on one of the world's first algorithm-level-optimizing compilers
+      \item Collaboratively implemented proven-correct cryptographic code now used by Google Chrome, and in the majority of secure connects from web browsers
+      \item Researched performance issues that impact scalability of automated verification
+      \item Reported the plurality of bugs in the proof assistant Coq
+    \end{itemize}
+  \end{position}
+
   \employer{Machine Intelligence Research Institute}
   \dates{June 2019--August 2019}
   \title{Type Theory Intern}
@@ -420,6 +457,8 @@
   \end{position}
 \end{multitex}
 \begin{multitex*}[\cvfiles]
+  \bgroup
+  \interlinepenalty 10000
   \employer{Google}
   \dates{June 2016--September 2016}
   \title{Software Engineering Intern}
@@ -429,6 +468,7 @@
       \item Formalized low-level ECC primitives with proofs of correctness
     \end{itemize}
   \end{position}
+  \egroup
 \end{multitex*}
 \begin{multitex}[\cvlongandmathfiles]
   \employer{MIT}
@@ -474,7 +514,7 @@
   \location{Cambridge, United Kingdom}
   \begin{position}
     \begin{itemize}
-      \item Created a language for specifying input/output behavior of x86 assembly programs with Andrew Kennedy and Nick Benton; Verified the I/O behavior of a number of simple programs
+      \item \onlymultitex*{\allexceptcvlongfiles}{Collaboratively c}\onlymultitex*{\cvlongfiles}{C}reated a language for specifying input/output behavior of x86 assembly programs\onlymultitex*{\cvlongfiles}{with Andrew Kennedy and Nick Benton}; Verified the I/O behavior of a number of simple programs
       \onlymultitex*{\cvfiles}{\item Improved automation of the x86proved library}
     \end{itemize}
   \end{position}
@@ -487,7 +527,7 @@
     \begin{position}
         \begin{itemize}
             \item Entered a significant amount of category theory into the automated proof assistant Coq \onlymultitex*{\cvfiles}{(\url{https://github.com/HoTT/HoTT/tree/master/theories/Categories})}
-            \onlymultitex{\cvfiles}{\item Made progress towards an interface for databases and database migration on top of category theory in Coq with David Spivak and Adam Chlipala}
+            \onlymultitex{\cvfiles}{\item Made progress towards an interface for databases and database migration on top of category theory in Coq\onlymultitex*{\cvlongfiles}{ with David Spivak and Adam Chlipala}}
             \onlymultitex*{\cvlongfiles}{\item Presented ``Building Database Management on top of Category Theory in Coq'', January 25, 2013, POPL 2013: 40th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages}
             \onlymultitex*{\cvlongfiles}{\item Presented	 ``Experience Implementing a Performant Category-Theory Library in Coq'', July 14, 2014, Interactive Theorem Proving 2014 Conference}
         \end{itemize}
@@ -500,7 +540,7 @@
   \location{Cambridge, MA}
   \begin{position}
     \begin{itemize}
-      \onlymultitex*{\cvfiles}{\item Designed from scratch a data collection webpage, collected data for, and helped with research \onlymultitex*{\cvfiles}{ of Brenden Lake, Ruslan Salakhutdinov, and Josh Tenenbaum, }on categorical and transfer learning\onlymultitex*{\cvlongfiles}{ (\url{https://jgross.scripts.mit.edu/alphabets/})}.}
+      \onlymultitex*{\cvfiles}{\item Designed from scratch a data collection webpage, collected data for, and helped with research \onlymultitex*{\cvlongfiles}{ of Brenden Lake, Ruslan Salakhutdinov, and Josh Tenenbaum, }on categorical and transfer learning\onlymultitex*{\cvlongfiles}{ (\url{https://jgross.scripts.mit.edu/alphabets/})}}
       \onlymultitex*{\cvlongfiles,\resumefiles}{%
       \item Co-author of ``One shot learning of simple visual concepts''\onlymultitex*{\cvfiles}{ published in \emph{Proceedings of the 33rd Annual Meeting of the Cognitive Science Society}}.
         }
@@ -544,28 +584,31 @@
 
 \end{multitex*}
 
-\begin{multitex}
-\section{\textsc{Computer Skills}}
+\begin{multitex}[curriculum-vitae]
+\section{\textsc{Programming Languages}}
 \end{multitex}
+\begin{multitex*}[\allexceptcv]
+\section{\textsc{Computer Skills}}
+\end{multitex*}
 \begin{multitex}
     \begin{itemize}
       \item
-        Proficient skills -- Coq, \onlymultitex*{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
+        Proficient -- Coq, \onlymultitex*{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
       \item
         Working knowledge -- \onlymultitex*{\cvlongfiles}{\LaTeX{}, }C, C++, Agda, OCaml, Haskell, Scheme, HTML, CSS, Perl, Java
       \item
-        Basic knowledge -- Matlab, Idris, Ruby, Ur/Web, x86 Assembly
+        Basic knowledge -- Matlab, Lean, Idris, Ruby, Ur/Web, x86 Assembly
     \end{itemize}
 \end{multitex}
 
 \begin{multitex}
   \section{\textsc{Teaching}}
   \begin{itemize}
-  \item Instructor at Monsoon Math: Classes on category theory, linear logic, and L\"ob's theorem
+  \item Instructor at Monsoon Math Camp: Classes on category theory, linear logic, L\"ob's theorem
   \item TA for 6.172 (Performance Engineering% of Software% Systems
     ): Led recitations, analyzed and explained assembly output of \texttt{gcc -O3} to teach vectorization
   \item TA for 8.012 (Physics I) and 8.022 (Physics II) in Experimental Study Group
-  \item Volunteer for MIT ESP: Classes on \LaTeX, philosophy, linear algebra, and quantum mechanics
+  \item Teacher at MIT ESP Programs: Classes on \LaTeX, philosophy, linear algebra, and quantum mechanics
   \end{itemize}
 \end{multitex}
 
@@ -765,13 +808,15 @@
 \end{multitex*}
 
 \begin{multitex}
-\section{\textsc{Extracurricular Activities}}
+\section{\textsc{Other Activities}}
 \end{multitex}
 \begin{multitex}
     \begin{itemize}
       \onlymultitex*{\cvfiles,computer-science}{%
+      \item Co-maintainer of the Fiat Cryptography project (\href{https://github.com/mit-plv/fiat-crypto}{mit-plv/fiat-crypto} on GitHub)
       \item Co-maintainer of the homotopy type theory Coq repository (\href{https://github.com/HoTT/HoTT}{\texttt{HoTT/HoTT} on GitHub})
-      \onlymultitex*{\cvfiles}{%
+      \item Program Committee Member of CoqPL 2022
+      \onlymultitex*{\cvlongfiles}{%
         \item MIRI Decision Theory Workshop Attendee: Formalized various versions of L\"ob's theorem in Agda and Coq
         }
       \item Commiter to the SIPB BarnOwl project (\url{https://barnowl.mit.edu})
@@ -781,6 +826,9 @@
       }
       \onlymultitex*{\cvlongfiles}{
       \item Was project leader for MITeX, an online interface for composing \LaTeX
+      }
+      \onlymultitex*{\cvfiles}{%
+      \item President of Tech Squares, MIT's Square Dancing Club (May 2013--October 2014)
       }
       \onlymultitex*{\cvlongfiles}{%
       \item HMMT Solutions Editor (2010)
@@ -815,6 +863,7 @@
 \end{multitex}
 
 \begin{multitex*}[\cvshortfiles]
+  \clearpage
   \section{\textsc{Selected Presentations and Publications}}
   \addtocategory{exclude}{Evaluation2021Huhmann}
   \printbibliography[title={$\left.\right.$},notcategory=exclude]
