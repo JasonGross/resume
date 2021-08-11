@@ -391,11 +391,7 @@
 \end{multitex*}
 
 
-\begin{multitex}[\allexceptcv]
-\section{\textsc{Internships}}
-\end{multitex}
-
-\begin{multitex}[curriculum-vitae]
+\begin{multitex}
 \section{\textsc{Experience}}
 \end{multitex}
 
@@ -408,6 +404,8 @@
     \begin{itemize}
       \item Stress Testing, Bug Reporting, Bug Minimizer, Compatibility Assurance
       \item Engineering and maintaining a bug minimizer for automatically producing minimized stand-alone test-cases from buggy code
+      \item Researching performance issues that impact scalability of automated verification
+      \item Have reported the plurality of bugs in the proof assistant Coq
     \end{itemize}
   \end{position}
 
@@ -417,7 +415,7 @@
   \location{Berkeley, CA (remote)}
   \begin{position}
     \begin{itemize}
-      \item Performing self-directed research into topics in basic programming language theory and math%ematics%, bringing insights and understanding back to my supervisor
+      \item Performing self-directed research into topics in fundamental programming language theory and mathematics%, bringing insights and understanding back to my supervisor
     \end{itemize}
   \end{position}
 
@@ -428,13 +426,18 @@
   \begin{position}
     \begin{itemize}
       \item Main Research Project: Fiat Cryptography (\href{https://github.com/mit-plv/fiat-crypto}{github.com/mit-plv/fiat-crypto})
-      \item Collaboratively worked on one of the world's first algorithm-level-optimizing compilers
       \item Collaboratively implemented proven-correct cryptographic code now used by Google Chrome, and in the majority of secure connects from web browsers
-      \item Researched performance issues that impact scalability of automated verification
-      \item Reported the plurality of bugs in the proof assistant Coq
+      \item Led development of one of the world's first algorithm-level-optimizing compilers
+      \item Wrote backends to C, Go, Java, and JSON; managed development of backends to Rust and Zig
     \end{itemize}
   \end{position}
+\end{multitex*}
 
+\begin{multitex}
+\section{\textsc{Internships}}
+\end{multitex}
+
+\begin{multitex*}[\cvfiles]
   \employer{Machine Intelligence Research Institute}
   \dates{June 2019--August 2019}
   \title{Type Theory Intern}
@@ -446,6 +449,8 @@
   \end{position}
 \end{multitex*}
 \begin{multitex}
+  \bgroup
+  \interlinepenalty 10000
   \employer{Google}
   \dates{June 2018--August 2018}
   \title{Software Engineering Intern}
@@ -455,6 +460,7 @@
       \item Worked with BoringSSL on integration of proven-correct low-level ECC primitives into Chrome
     \end{itemize}
   \end{position}
+  \egroup
 \end{multitex}
 \begin{multitex*}[\cvfiles]
   \bgroup
@@ -593,22 +599,22 @@
 \begin{multitex}
     \begin{itemize}
       \item
-        Proficient -- Coq, \onlymultitex*{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
+        Proficient: Coq, \onlymultitex*{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
       \item
-        Working knowledge -- \onlymultitex*{\cvlongfiles}{\LaTeX{}, }C, C++, Agda, OCaml, Haskell, Scheme, HTML, CSS, Perl, Java
+        Working knowledge: \onlymultitex*{\cvlongfiles}{\LaTeX{}, }C, C++, Agda, OCaml, Haskell, Scheme, HTML, CSS, Perl, Java
       \item
-        Basic knowledge -- Matlab, Lean, Idris, Ruby, Ur/Web, x86 Assembly
+        Basic knowledge: Matlab, Lean, Idris, Ruby, Go, Ur/Web, x86 Assembly
     \end{itemize}
 \end{multitex}
 
 \begin{multitex}
   \section{\textsc{Teaching}}
   \begin{itemize}
-  \item Instructor at Monsoon Math Camp: Classes on category theory, linear logic, L\"ob's theorem
+  \item Instructor at Monsoon Math Camp: category theory, linear logic, L\"ob's theorem
   \item TA for 6.172 (Performance Engineering% of Software% Systems
     ): Led recitations, analyzed and explained assembly output of \texttt{gcc -O3} to teach vectorization
   \item TA for 8.012 (Physics I) and 8.022 (Physics II) in Experimental Study Group
-  \item Teacher at MIT ESP Programs: Classes on \LaTeX, philosophy, linear algebra, and quantum mechanics
+  \item Teacher at MIT ESP Programs: \LaTeX, philosophy, linear algebra, quantum mechanics
   \end{itemize}
 \end{multitex}
 
@@ -813,7 +819,7 @@
 \begin{multitex}
     \begin{itemize}
       \onlymultitex*{\cvfiles,computer-science}{%
-      \item Co-maintainer of the Fiat Cryptography project (\href{https://github.com/mit-plv/fiat-crypto}{mit-plv/fiat-crypto} on GitHub)
+      \item Co-maintainer of the Fiat Cryptography project (\href{https://github.com/mit-plv/fiat-crypto}{\texttt{mit-plv/fiat-crypto}} on GitHub)
       \item Co-maintainer of the homotopy type theory Coq repository (\href{https://github.com/HoTT/HoTT}{\texttt{HoTT/HoTT} on GitHub})
       \item Program Committee Member of CoqPL 2022
       \onlymultitex*{\cvlongfiles}{%
