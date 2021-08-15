@@ -41,8 +41,9 @@ clean:
 UNIS-LARGE = #$(patsubst %,uni-%.def,$(shell seq 0 762))
 UNIS = #uni-global.def
 INS_STY = #ifmtarg.sty
-DTX_STY = #etextools.sty
-ALL_DTX_STY = $(DTX_STY)
+DTX_STY = kvoptions.sty letltxmacro.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty #etextools.sty
+GENERIC_DTX_STY = ltxcmds.sty #xstring.sty
+ALL_DTX_STY = $(DTX_STY) $(GENERIC_DTX_STY)
 DTX_LATEX_STY =
 ALL_DTX_LATEX_STY = $(DTX_LATEX_STY) #stmaryrd.sty
 REQUIRED_GRAPHICS_DTX_INS_STY = #graphics.sty
@@ -57,6 +58,7 @@ SIMPLE_DEPENDENCIES = logreq.sty etoolbox.sty #xifthen.sty url.sty #ucs.sty lazy
 SIMPLE_DEFS = logreq.def
 GENERIC_STY = #xstring.sty
 GENERIC_TEX = #xstring.tex
+IFTEX_STY = iftex.sty ifpdf.sty ifvtex.sty pdftexcmds.sty ifluatex.sty
 REQUIRED_DTX_INS_ZIPS = #graphics.zip tools.zip
 REQUIRED_ZIPS = $(REQUIRED_DTX_INS_ZIPS)
 SIMPLE_CONTRIB_ZIPS = biblatex.zip #cmap.zip mmap.zip
@@ -66,10 +68,9 @@ SIMPLE_ZIPS = $(SIMPLE_CONTRIB_ZIPS) #tipa.zip
 SIMPLE_DTX_ZIPS = #stmaryrd.zip
 NORMAL_ZIPS = $(SIMPLE_CONTRIB_ZIPS)
 ZIPS = $(SIMPLE_ZIPS) $(SIMPLE_DTX_ZIPS) $(REQUIRED_ZIPS) $(SIMPLE_CONTRIB_DTX_INS_ZIPS)
-OBERDIEK_DTX_STY = kvoptions.sty ltxcmds.sty letltxmacro.sty ifpdf.sty ifvtex.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty pdftexcmds.sty ifluatex.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty #accsupp.sty
 BUILD_INS_STY = $(INS_STY) $(GENERIC_TEX_INS_STY) $(DTX_INS_STY) $(SIMPLE_CONTRIB_DTX_INS_ZIPS:.zip=.sty) $(BASE_DTX_INS_STY)
-PRE_DEPENDENCIES = $(INS_STY:.sty=.ins) $(ALL_DTX_STY:.sty=.dtx) $(ALL_DTX_LATEX_STY:.sty=.dtx) $(ZIPS) $(ZIPS:.zip=/) $(OBERDIEK_DTX_STY:.sty=.dtx) $(BASE_DTX_INS_DOWNLOAD:.dtx=.ins) $(BASE_DTX_INS_DOWNLOAD) #graphics.ins # boxchar.sty codelist.sty exaccent.sty extraipa.sty tipaman.sty tipaman.tex tipaman0.tex tipaman1.tex tipaman2.tex tipaman3.tex tipaman4.tex tipx.sty tone.sty vowel.sty vowel.tex
-DEPENDENCIES = $(GENERIC_STY) $(GENERIC_TEX) $(ALL_DTX_INS_STY) $(ALL_TEX_INS_STY) $(ALL_TEX_INS_STY) $(INS_STY) $(ALL_DTX_STY) $(ALL_DTX_LATEX_STY) $(SIMPLE_DEPENDENCIES) $(SIMPLE_TEX) $(SIMPLE_DEFS) $(OBERDIEK_DTX_STY) $(UNIS) $(REQUIRED_GRAPHICS_DTX_INS_STY) $(NORMAL_ZIPS:.zip=.sty) hyperref.sty #article.cls #graphics.sty verbatim.sty etex.sty fontenc.sty # utf8x.def ucsencs.def uni-34.def uni-33.def uni-3.def uni-32.def uni-37.def uni-35.def uni-0.def uni-32.def uni-39.def tipa.sty uni-29.def uni-37.def uni-2.def uni-3.def cmap.sty mmap.sty
+PRE_DEPENDENCIES = $(INS_STY:.sty=.ins) $(ALL_DTX_STY:.sty=.dtx) $(ALL_DTX_LATEX_STY:.sty=.dtx) $(ZIPS) $(ZIPS:.zip=/) $(BASE_DTX_INS_DOWNLOAD:.dtx=.ins) $(BASE_DTX_INS_DOWNLOAD) #graphics.ins # boxchar.sty codelist.sty exaccent.sty extraipa.sty tipaman.sty tipaman.tex tipaman0.tex tipaman1.tex tipaman2.tex tipaman3.tex tipaman4.tex tipx.sty tone.sty vowel.sty vowel.tex
+DEPENDENCIES = $(GENERIC_STY) $(GENERIC_TEX) $(ALL_DTX_INS_STY) $(ALL_TEX_INS_STY) $(ALL_TEX_INS_STY) $(INS_STY) $(ALL_DTX_STY) $(ALL_DTX_LATEX_STY) $(SIMPLE_DEPENDENCIES) $(SIMPLE_TEX) $(SIMPLE_DEFS) $(UNIS) $(REQUIRED_GRAPHICS_DTX_INS_STY) $(NORMAL_ZIPS:.zip=.sty) $(IFTEX_STY) hyperref.sty #article.cls #graphics.sty verbatim.sty etex.sty fontenc.sty # utf8x.def ucsencs.def uni-34.def uni-33.def uni-3.def uni-32.def uni-37.def uni-35.def uni-0.def uni-32.def uni-39.def tipa.sty uni-29.def uni-37.def uni-2.def uni-3.def cmap.sty mmap.sty
 EXTRA_CLEAN_FILES = .tex 01-introduction.tex 02-annotations.tex 03-localization-keys.tex 10-references-per-section.tex 11-references-by-section.tex 12-references-by-segment.tex 13-references-by-keyword.tex 14-references-by-category.tex 15-references-by-type.tex 16-numeric-prefixed-1.tex 17-numeric-prefixed-2.tex 18-numeric-hybrid.tex 19-alphabetic-prefixed.tex 20-indexing-single.tex 21-indexing-multiple.tex 22-indexing-subentry.tex 30-style-numeric.tex 31-style-numeric-comp.tex 32-style-numeric-verb.tex 40-style-alphabetic.tex 41-style-alphabetic-verb.tex 42-style-alphabetic-template.tex 50-style-authoryear.tex 51-style-authoryear-ibid.tex 52-style-authoryear-comp.tex 53-style-authoryear-icomp.tex 60-style-authortitle.tex 61-style-authortitle-ibid.tex 62-style-authortitle-comp.tex 63-style-authortitle-icomp.tex 64-style-authortitle-terse.tex 65-style-authortitle-tcomp.tex 66-style-authortitle-ticomp.tex 70-style-verbose.tex 71-style-verbose-ibid.tex 72-style-verbose-note.tex 73-style-verbose-inote.tex 74-style-verbose-trad1.tex 75-style-verbose-trad2.tex 76-style-verbose-trad3.tex 80-style-reading.tex 81-style-draft.tex 82-style-debug.tex 90-related-entries.tex 91-sorting-schemes.tex 92-bibliographylists.tex 93-nameparts.tex README.txt afterpage.dtx afterpage.ins afterpage.sty array.dtx array.sty atbegshi-example1.tex atbegshi-example2.tex atbegshi-test1.tex atbegshi-test2.tex atbegshi-test3.tex atbegshi.ins atbegshi.xml atveryend-test1.tex atveryend.ins atveryend.xml auxhook.ins auxhook.xml backref.dtx backref.sty biblatex.tex bigintcalc-test1.tex bigintcalc-test2.tex bigintcalc-test3.tex bigintcalc.ins bigintcalc.xml bit.tex bitset-test1.tex bitset-test2.tex bitset-test3.tex bitset.ins bitset.xml bk10.clo bk11.clo bk12.clo bm.dtx bm.ins bm.sty bmhydoc.sty book.cls calc.dtx calc.sty color.dtx color.sty dcolumn.dtx dcolumn.sty delarray.dtx delarray.sty drivers.dtx e.tex enumerate.dtx enumerate.sty epsfig.dtx epsfig.sty etexcmds-test1.tex etexcmds-test2.tex etexcmds-test3.tex etexcmds-test4.tex etexcmds.ins etexcmds.xml etextools-examples.tex etextools.ins example-mycolorsetup.sty fdl.tex fileerr.dtx fontsmpl.dtx fontsmpl.sty fontsmpl.tex ftnright.dtx ftnright.sty graphics-drivers.ins graphics.dtx graphicx.dtx graphicx.sty grfguide.tex h.tex hhline.dtx hhline.sty hopatch-test1.tex hopatch-test2.tex hopatch.ins hopatch.xml hycheck.tex hycolor-test-xcol1.tex hycolor-test-xcol2.tex hycolor-test-xcol3.tex hycolor-test-xcol4.tex hycolor-test1.tex hycolor-test2.tex hycolor-test3.tex hycolor.ins hycolor.xml hyperref.dtx hyperref.ins ifluatex-test1.tex ifluatex-test2.tex ifluatex-test3.tex ifluatex.ins ifluatex.xml ifpdf-test1.tex ifpdf.ins ifpdf.xml ifvtex-test1.tex ifvtex.ins ifvtex.xml ifxetex.ins ifxetex.tex indentfirst.dtx indentfirst.sty infwarerr-test1.tex infwarerr-test2.tex infwarerr-test3.tex infwarerr.ins infwarerr.xml intcalc-test1.tex intcalc-test2.tex intcalc-test3.tex intcalc-test4.tex intcalc.ins intcalc.xml keyval.dtx kvdefinekeys-test1.tex kvdefinekeys.ins kvdefinekeys.xml kvoptions-patch.sty kvoptions-test1.tex kvoptions-test2.tex kvoptions-test3.tex kvoptions-test4.sty kvoptions-test4.tex kvoptions.ins kvoptions.xml kvsetkeys-example.tex kvsetkeys-test1.tex kvsetkeys-test2.tex kvsetkeys-test3.tex kvsetkeys-test4.tex kvsetkeys.ins kvsetkeys.xml layout.dtx layout.sty letltxmacro-showcases.tex letltxmacro-test1.tex letltxmacro-test2.tex letltxmacro.ins letltxmacro.xml longtable.dtx longtable.ins longtable.sty lscape.dtx lscape.sty ltxcmds-test-carcdr.tex ltxcmds-test-gobble.tex ltxcmds-test-ifboxempty.tex ltxcmds-test-ifempty.tex ltxcmds-test-nextchar.tex ltxcmds-test-zapspace.tex ltxcmds-test1.tex ltxcmds.ins ltxcmds.xml manual.tex minitoc-hyper.sty multicol.dtx multicol.ins multicol.sty nameref.dtx nameref.sty nohyperref.sty ntheorem-hyper.sty oberdiek.pdftexcmds.lua options.tex pdfescape-test1.tex pdfescape-test2.tex pdfescape-test3.tex pdfescape-test4.tex pdfescape-test5.tex pdfescape-test6.tex pdfescape.ins pdfescape.xml pdftexcmds-test-escape.tex pdftexcmds-test-shell.tex pdftexcmds-test1.tex pdftexcmds-test2.tex pdftexcmds.bib pdftexcmds.ins pdftexcmds.lua pdftexcmds.xml q.tex r.tex rawfonts.dtx rawfonts.sty report.cls rerunfilecheck-test1.tex rerunfilecheck.ins rerunfilecheck.xml tabularx.dtx tabularx.ins tabularx.sty test-bm-pu-licr.tex test0.tex test1.tex test2.tex test3.tex test4.tex test6.tex test7.tex test8.tex testams.tex testbib.tex testbmgl.tex testbmu.tex testbookmark.tex testfor2.tex testform.tex testnb.tex testoz.tex testslide.tex testurl.tex textcomp.sty thb.sty thc.sty thcb.sty theorem.dtx theorem.sty thm.sty thmb.sty thp.sty tools-overview.tex tools.ins trace.dtx trace.sty trig.dtx trig.sty uniquecounter-example.tex uniquecounter-test1.tex uniquecounter-test2.tex uniquecounter-test3.tex uniquecounter.ins uniquecounter.xml varioref.dtx varioref.ins varioref.sty verbatim.dtx verbtest.tex x.tex xcolor-patch.sty xr-hyper.sty xr.dtx xr.sty xspace.dtx xspace.sty s.tex shellesc.dtx shellesc.sty showkeys.dtx showkeys.sty size10.clo size11.clo size12.clo somedefs.dtx somedefs.sty keyval.sty refcount-test1.tex refcount-test2.tex refcount-test3.tex refcount-test4.tex refcount-test5.tex refcount.ins refcount.xml refcount-test1.tex refcount-test2.tex refcount-test3.tex refcount-test4.tex refcount-test5.tex refcount.ins refcount.xml gettitlestring-test1.tex gettitlestring-test2.tex gettitlestring.ins gettitlestring.xml
 EXTRA_CLEAN_FILES += biblatex_legacy.sty biblatex_.sty etextools.sty
 
@@ -84,49 +85,49 @@ $(SIMPLE_DTX_ZIPS:.zip=.dtx) : %.dtx : %.zip
 $(SIMPLE_CONTRIB_DTX_INS_ZIPS:.zip=.ins) $(REQUIRED_DTX_INS_ZIPS:.zip=.ins) : %.ins : %.zip
 	unzip $< && (find $(<:.zip=) $(FIND_ARGS) | xargs touch && find $(<:.zip=) $(FIND_ARGS) | xargs mv -t ./)
 
-$(OBERDIEK_DTX_STY:.sty=.dtx):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/oberdiek/$@"
-
 etex.sty:
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/etex-pkg/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/etex-pkg/$@"
 
 tipa.zip:
-	$(WGET) -N "http://mirrors.ctan.org/fonts/$(@:.zip=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/fonts/$(@:.zip=)/$@"
+
+$(IFTEX_STY):
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/iftex/$@"
 
 stmaryrd.zip:
-	$(WGET) -N "http://mirrors.ctan.org/fonts/$@"
+	$(WGET) -N "https://mirrors.ctan.org/fonts/$@"
 
 $(CONTRIB_ZIPS):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$@"
 
 $(REQUIRED_ZIPS):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/required/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/required/$@"
 
 utf8x.def ucsencs.def:
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/ucs/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/ucs/$@"
 
 $(GENERIC_STY):
-	$(WGET) -N "http://mirrors.ctan.org/macros/generic/$(@:.sty=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/$(@:.sty=)/$@"
 
 $(GENERIC_TEX):
-	$(WGET) -N "http://mirrors.ctan.org/macros/generic/$(@:.tex=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/$(@:.tex=)/$@"
 
 $(UNIS) $(UNIS-LARGE):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/ucs/data/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/ucs/data/$@"
 
 ifmtarg.sty: ifmtarg.tex
 
 $(SIMPLE_TEX):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$(@:.tex=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$(@:.tex=)/$@"
 
 $(GENERIC_TEX_INS_STY:.sty=.ins):
-	$(WGET) -N "http://mirrors.ctan.org/macros/generic/$(@:.ins=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/$(@:.ins=)/$@"
 
 $(BASE_DTX_INS_DOWNLOAD:.dtx=.ins) $(BASE_DTX_INS_DOWNLOAD):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/base/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/base/$@"
 
 $(INS_STY:.sty=.ins) $(DTX_INS_STY:.sty=.ins):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$(@:.ins=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$(@:.ins=)/$@"
 
 $(BUILD_INS_STY) : %.sty : %.ins
 	latex $<
@@ -138,10 +139,13 @@ $(ALL_DTX_INS_STY) : %.sty : %.dtx
 $(ALL_TEX_INS_STY) : %.sty : %.tex
 
 $(DTX_STY:.sty=.dtx) $(DTX_INS_STY:.sty=.dtx):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$(@:.dtx=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$(@:.dtx=)/$@"
 
 $(GENERIC_TEX_INS_STY:.sty=.tex):
-	$(WGET) -N "http://mirrors.ctan.org/macros/generic/$(@:.tex=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/$(@:.tex=)/$@"
+
+$(GENERIC_DTX_STY:.sty=.dtx):
+	$(WGET) -N "https://mirrors.ctan.org/macros/generic/$(@:.dtx=)/$@"
 
 $(ALL_DTX_STY) $(OBERDIEK_DTX_STY) : %.sty : %.dtx
 	tex $<
@@ -150,10 +154,10 @@ $(ALL_DTX_LATEX_STY) : %.sty : %.dtx
 	latex $<
 
 $(SIMPLE_DEPENDENCIES):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$(@:.sty=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$(@:.sty=)/$@"
 
 $(SIMPLE_DEFS):
-	$(WGET) -N "http://mirrors.ctan.org/macros/latex/contrib/$(@:.def=)/$@"
+	$(WGET) -N "https://mirrors.ctan.org/macros/latex/contrib/$(@:.def=)/$@"
 
 graphics.sty: graphics.ins
 	latex graphics-drivers.ins
