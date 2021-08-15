@@ -16,7 +16,12 @@ QECHO = $(QECHO_$(V))
 
 WGET ?= wget
 
-all: Resume.pdf
+all: Resume.pdf JasonGross-curriculum-vitae.pdf
+
+Resume-curriculum-vitae.pdf: Resume.pdf
+
+JasonGross-curriculum-vitae.pdf: Resume-curriculum-vitae.pdf | Resume.pdf
+	cp $< $@
 
 # "-e '" + "' -e '".join(['s/month = {%s},/month = {%d},/g' % (datetime.date(2015, i, 1).strftime('%B'), i) for i in range(1,13)]) + "'"
 jason-gross.bib: publications/jason-gross.bib
