@@ -74,6 +74,7 @@
 /94-labelprefix.tex
 /95-customlists.tex
 /96-dates.tex
+/97-annotations.tex
 /atbegshi-example1.tex
 /atbegshi-example2.tex
 /atbegshi-test1.tex
@@ -98,6 +99,8 @@
 /backref.drv
 /backref.dtx
 /backref.sty
+/biber
+/biber-linux_x86_64.tar.gz
 /biblatex
 /biblatex.bst
 /biblatex.tex
@@ -119,6 +122,8 @@
 /bitset.ins
 /bitset.sty
 /bitset.xml
+/blx-case-expl3.sty
+/blx-case-latex2e.sty
 /bmhydoc.sty
 /etexcmds-test1.tex
 /etexcmds-test2.tex
@@ -139,6 +144,8 @@
 /gettitlestring.ins
 /gettitlestring.sty
 /gettitlestring.xml
+/hluatex.dtx
+/hopatch-2016-05-16.sty
 /hopatch-test1.tex
 /hopatch-test2.tex
 /hopatch.drv
@@ -160,6 +167,7 @@
 /hycolor.sty
 /hycolor.xml
 /hyperref
+/hyperref-doc.tex
 /hyperref.drv
 /hyperref.dtx
 /hyperref.ins
@@ -179,6 +187,7 @@
 /ifpdf.ins
 /ifpdf.sty
 /ifpdf.xml
+/iftex.sty
 /ifvtex-test1.tex
 /ifvtex.drv
 /ifvtex.dtx
