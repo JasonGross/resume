@@ -43,7 +43,7 @@ clean:
 UNIS-LARGE = #$(patsubst %,uni-%.def,$(shell seq 0 762))
 UNIS = #uni-global.def
 INS_STY = #ifmtarg.sty
-DTX_STY = kvoptions.sty letltxmacro.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty #etextools.sty
+DTX_STY = kvoptions.sty letltxmacro.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty pdftexcmds.sty #etextools.sty
 GENERIC_DTX_STY = ltxcmds.sty #xstring.sty
 ALL_DTX_STY = $(DTX_STY) $(GENERIC_DTX_STY)
 DTX_LATEX_STY =
@@ -60,7 +60,7 @@ SIMPLE_DEPENDENCIES = logreq.sty etoolbox.sty #xifthen.sty url.sty #ucs.sty lazy
 SIMPLE_DEFS = logreq.def
 GENERIC_STY = #xstring.sty
 GENERIC_TEX = #xstring.tex
-IFTEX_STY = iftex.sty ifpdf.sty ifvtex.sty pdftexcmds.sty ifluatex.sty
+IFTEX_STY = iftex.sty ifpdf.sty ifvtex.sty ifluatex.sty
 REQUIRED_DTX_INS_ZIPS = #graphics.zip tools.zip
 REQUIRED_ZIPS = $(REQUIRED_DTX_INS_ZIPS)
 SIMPLE_CONTRIB_ZIPS = biblatex.zip #cmap.zip mmap.zip
