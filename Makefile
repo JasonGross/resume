@@ -43,8 +43,8 @@ clean:
 UNIS-LARGE = #$(patsubst %,uni-%.def,$(shell seq 0 762))
 UNIS = #uni-global.def
 INS_STY = #ifmtarg.sty
-DTX_STY = kvoptions.sty letltxmacro.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty pdftexcmds.sty #etextools.sty
-GENERIC_DTX_STY = ltxcmds.sty #xstring.sty
+DTX_STY = kvoptions.sty letltxmacro.sty hycolor.sty etexcmds.sty infwarerr.sty kvsetkeys.sty bitset.sty intcalc.sty bigintcalc.sty atbegshi.sty hopatch.sty atveryend.sty kvdefinekeys.sty rerunfilecheck.sty uniquecounter.sty auxhook.sty pdfescape.sty refcount.sty gettitlestring.sty #etextools.sty
+GENERIC_DTX_STY = ltxcmds.sty pdftexcmds.sty #xstring.sty
 ALL_DTX_STY = $(DTX_STY) $(GENERIC_DTX_STY)
 DTX_LATEX_STY =
 ALL_DTX_LATEX_STY = $(DTX_LATEX_STY) #stmaryrd.sty
