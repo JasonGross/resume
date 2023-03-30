@@ -39,8 +39,8 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: build
-        path: build/
+        name: pdfs
+        path: ./*.pdf
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.4.1
