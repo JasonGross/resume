@@ -92,6 +92,10 @@
 \makeatother
 
 \newsectionwidth{1em}
+\makeatletter
+\pretocmd{\employer}{\vskip-\baselineskip}{}{}
+\apptocmd{\@@section}{\vskip1.5\baselineskip\relax}{}{}
+\makeatother
 \resumewidth=7.5in
 
 \newcommand{\aswidthof}[2]{\rlap{#1}\hphantom{#2}}
