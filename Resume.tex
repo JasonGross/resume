@@ -272,50 +272,18 @@
 
   \newcommand{\aswidthof}[2]{\rlap{#1}\hphantom{#2}}
 \end{multitex}
-\begin{multitex*}[\cvlongfiles]
-  \name{\LARGE \bf \hspace{\stretch{1}} Jason Gross \hspace{\stretch{1}} \\
-    \hspace{\stretch{1}}\large \href{mailto:jgross@mit.edu}{jgross@mit.edu} --- (631) 790-8962 --- \url{https://people.csail.mit.edu/jgross/}\hspace{\stretch{1}} \\}
-
-  \address{\textsc{Present Address}\\258 Prospect Street, Apt \# 1L\\Cambridge, MA 02139}
-  \address{\textsc{Permanent Address}\\126 Hayrick Lane \\  Commack, NY 11725}
-\end{multitex*}
-\begin{multitex}[\allexceptcvlongfiles]
-  \name{\LARGE \bf \parbox{\widthof{github.com/JasonGross}}{%
-      \centering Jason Gross \\
-      \vspace{0.2cm}
-      \large \href{https://github.com/JasonGross/}{github.com/JasonGross} \\
-      \href{https://people.csail.mit.edu/jgross/}{people.csail.mit.edu/jgross} \\
-      $\left.\right.$ \\
-      $\left.\right.$ \\%
-  }}
-
-  \vspace{5cm}
-
-  %\address{}%\textsc{Address}\\258 Prospect Street, Apt \# 1L\\Cambridge, MA 02139}
-  %\address{\textsc{Contact}\\\href{mailto:jgross@mit.edu}{jgross@mit.edu}\\(631) 790-8962}
-  \newcommand{\addressaswidth}[1]{\makebox[\widthof{\textsc{jgross@mit.edu}}][c]{#1}}
-  \address{\addressaswidth{\textsc{Contact}}\\\addressaswidth{\href{mailto:jgross@mit.edu}{jgross@mit.edu}}\\\addressaswidth{(631) 790-8962}}
-\end{multitex}
-
 \begin{document}
 
 \begin{multitex}
   \resume
-\end{multitex}
 
-\begin{multitex}[\cvlongfiles]
   \section{\textsc{Research Interests}}
   \begin{itemize}
-  \item Programming Languages and AI: Löb's Theorem, Type Theory, Compact Proof Generation
-  \item Trust and Security Engineering: Scalable Formal Verification, Cryptography, Performance Engineering 
+    \item Programming Languages and AI: Löb's Theorem, Type Theory, Compact Proof Generation
+    \item Trust and Security Engineering: Scalable Formal Verification, Cryptography, Performance Engineering
   \end{itemize}
-\end{multitex}
 
-\begin{multitex}
-\section{\textsc{Experience}}
-\end{multitex}
-
-\begin{multitex*}[\cvfiles]
+  \section{\textsc{Experience}}
 
   \employer{Machine Intelligence Research Institute (MIRI)}
   \dates{February 2021--Present}
@@ -346,14 +314,12 @@
   \begin{position}
     \begin{itemize}
       \item Main Project: Fiat Cryptography (\href{https://github.com/mit-plv/fiat-crypto}{github.com/mit-plv/fiat-crypto})
-      \item Fiat Cryptography is a developer tool to generate proven-correct cryptographic code. The project has wide industry adoption, including powering secure connections in Google Chrome and Firefox 
+      \item Fiat Cryptography is a developer tool to generate proven-correct cryptographic code. The project has wide industry adoption, including powering secure connections in Google Chrome and Firefox
       \item Lead development of one of the world's first algorithm-level-optimizing compilers
       \item Collaboratively implemented the tool; wrote backends to C, Go, Java, and JSON; managed development of backends to Rust and Zig
     \end{itemize}
   \end{position}
-\end{multitex*}
 
-\begin{multitex}[\allexceptcvlongfiles]
   \section{\textsc{Education}}
   \employer{Massachusetts Institute of Technology}
   \dates{2013--2021}
@@ -372,91 +338,61 @@
   \begin{position}\\
       GPA: 4.6/5
   \end{position}
-\end{multitex}
 
-\begin{multitex}
-\section{\textsc{Internships}}
-\end{multitex}
+  \section{\textsc{Internships}}
 
-\begin{multitex*}[\cvfiles]
-    \begin{itemize}
-      \item MIRI, summer 2019: Formalized type theories, and proved properties of programs that reason about themselves
-      \item Google, summer 2018: Worked on integration of Fiat Cryptography with BoringSSL in Chrome
-      \item Google, summer 2016: Extended Fiat Cryptography with ECC primiatives for integration with Open Titan
-      \item Microsoft Research, summer 2014: Collaboratively created a language for specifying input/output behavior of x86 assembly programs, verfied the input/output behavior of a number of simple programs, and improved performance of the x86proved project
-      \item MIT CSAIL - PLV, 2012 - 2014: Entered a significant amount of category theory into the automated proof assistant Coq, and worked on building an interface for databases and database migration on top of category theory
-      \item MIT CSAIL - CoCoSci, 2009 - 2011: Designed and managed the data collection webpage for research in categorical learning and transfer learning
-      \item Commack High School, 2006 - 2009: Researched circuits over sets of natural numbers, winning 4th (2009) and 3rd (2008) place awards in mathematics at ISEF 
-    \end{itemize}
-\end{multitex*}
+  \begin{itemize}
+  \item MIRI, summer 2019: Formalized type theories, and proved properties of programs that reason about themselves
+  \item Google, summer 2018: Worked on integration of Fiat Cryptography with BoringSSL in Chrome
+  \item Google, summer 2016: Extended Fiat Cryptography with ECC primiatives for integration with Open Titan
+  \item Microsoft Research, summer 2014: Collaboratively created a language for specifying input/output behavior of x86 assembly programs, verfied the input/output behavior of a number of simple programs, and improved performance of the x86proved project
+  \item MIT CSAIL - PLV, 2012 - 2014: Entered a significant amount of category theory into the automated proof assistant Coq, and worked on building an interface for databases and database migration on top of category theory
+  \item MIT CSAIL - CoCoSci, 2009 - 2011: Designed and managed the data collection webpage for research in categorical learning and transfer learning
+  \item Commack High School, 2006 - 2009: Researched circuits over sets of natural numbers, winning 4th (2009) and 3rd (2008) place awards in mathematics at ISEF
+  \end{itemize}
 
+  \section{\textsc{Professional Activities}}
 
-\begin{multitex}
-\section{\textsc{Professional Activities}}
-\end{multitex}
-\begin{multitex}
-    \begin{itemize}
-      \item Co-maintainer of the Fiat Cryptography project (\href{https://github.com/mit-plv/fiat-crypto}{\texttt{mit-plv/fiat-crypto}} on GitHub)
-      \item Co-maintainer of the homotopy type theory Coq repository (\href{https://github.com/HoTT/HoTT}{\texttt{HoTT/HoTT} on GitHub})
-      \item Program Committee Member of ITP 2023 and CoqPL 2022
-      \item Supervising independent research in formalizing correspondence of affine logic to two-player games
-      \item Instructor at MIT ESP Programs, Winter Applied Rationality Program, Monsoon Math Camp
-      \item Circling Facilitator at The Relateful Company
-      \item Member of SIPB (Student Information and Processing Board) 
-    \end{itemize}
-\end{multitex}
+  \begin{itemize}
+  \item Co-maintainer of the Fiat Cryptography project (\href{https://github.com/mit-plv/fiat-crypto}{\texttt{mit-plv/fiat-crypto}} on GitHub)
+  \item Co-maintainer of the homotopy type theory Coq repository (\href{https://github.com/HoTT/HoTT}{\texttt{HoTT/HoTT} on GitHub})
+  \item Program Committee Member of ITP 2023 and CoqPL 2022
+  \item Supervising independent research in formalizing correspondence of affine logic to two-player games
+  \item Instructor at MIT ESP Programs, Winter Applied Rationality Program, Monsoon Math Camp
+  \item Circling Facilitator at The Relateful Company
+  \item Member of SIPB (Student Information and Processing Board)
+  \end{itemize}
 
-\begin{multitex}
-\section{\textsc{Select Past Activities}}
-\end{multitex}
-\begin{multitex}
-    \begin{itemize}
-      \item Particpant in MIRI Decision Theory Workshops 
-      \item Volunteer at CFAR workshops
-      \item President of MIT Tech Squares
-      \item Contributor to the SIPB BarnOwn project
-      \item Project leader for MITeX, an online interface for composing \LaTeX
-      \item TA for 6.172: Performance Engineering
-      \item TA for 8.012: Physics I and 8.022: Physics II at the Experimental Study Group
-      \item Participant at Cananda/USA Mathcamp
-    \end{itemize}
-\end{multitex}
+  \section{\textsc{Select Past Activities}}
 
-\begin{multitex}[curriculum-vitae]
-\section{\textsc{Programming Languages}}
-\end{multitex}
-\begin{multitex*}[\allexceptcv]
-\section{\textsc{Computer Skills}}
-\end{multitex*}
-\begin{multitex}
-    \begin{itemize}
-      \item
-        Proficient: Coq, \onlymultitex*{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
-      \item
-        Working knowledge: \onlymultitex*{\cvlongfiles}{\LaTeX{}, }C, C++, Agda, OCaml, Haskell, Scheme, HTML, CSS, Perl, Java
-      \item
-        Basic knowledge: Matlab, Lean, Idris, Ruby, Go, Ur/Web, x86 Assembly
-    \end{itemize}
-\end{multitex}
+  \begin{itemize}
+  \item Particpant in MIRI Decision Theory Workshops
+  \item Volunteer at CFAR workshops
+  \item President of MIT Tech Squares
+  \item Contributor to the SIPB BarnOwn project
+  \item Project leader for MITeX, an online interface for composing \LaTeX
+  \item TA for 6.172: Performance Engineering
+  \item TA for 8.012: Physics I and 8.022: Physics II at the Experimental Study Group
+  \item Participant at Cananda/USA Mathcamp
+  \end{itemize}
 
+  \section{\textsc{Programming Languages}}
+  \begin{itemize}
+  \item
+    Proficient: Coq, \onlymultitex{\cvlongfiles}{\TeX{} macro language, }Mathematica, git, Python, JavaScript, BASIC
+  \item
+    Working knowledge: \onlymultitex{\cvlongfiles}{\LaTeX{}, }C, C++, Agda, OCaml, Haskell, Scheme, HTML, CSS, Perl, Java
+  \item
+    Basic knowledge: Matlab, Lean, Idris, Ruby, Go, Ur/Web, x86 Assembly
+  \end{itemize}
 
-\begin{multitex}
   \nocite{*}
-\end{multitex}
 
-\begin{multitex*}[\cvshortfiles]
   \clearpage
   \section{\textsc{Selected Presentations and Publications}}
   \addtocategory{exclude}{Evaluation2021Huhmann}
   \printbibliography[title={$\left.\right.$},notcategory=exclude]
-\end{multitex*}
 
-\begin{multitex*}[\cvlongfiles]
-  \section{\textsc{Presentations and Publications}}
-  \printbibliography[title={$\left.\right.$}]
-\end{multitex*}
-
-\begin{multitex}
-\endresume
+  \endresume
 \end{multitex}
 \end{document}
