@@ -272,6 +272,25 @@
 
   \newcommand{\aswidthof}[2]{\rlap{#1}\hphantom{#2}}
 \end{multitex}
+
+\begin{multitex}
+  \name{\LARGE \bf \parbox{\widthof{github.com/JasonGross}}{%
+      \centering Jason Gross \\
+      \vspace{0.2cm}
+      \large \href{https://github.com/JasonGross/}{github.com/JasonGross} \\
+      \href{https://people.csail.mit.edu/jgross/}{people.csail.mit.edu/jgross} \\
+      $\left.\right.$ \\
+      $\left.\right.$ \\%
+  }}
+
+  \vspace{5cm}
+
+  %\address{}%\textsc{Address}\\258 Prospect Street, Apt \# 1L\\Cambridge, MA 02139}
+  %\address{\textsc{Contact}\\\href{mailto:jgross@mit.edu}{jgross@mit.edu}\\(631) 790-8962}
+  \newcommand{\addressaswidth}[1]{\makebox[\widthof{\textsc{jgross@mit.edu}}][c]{#1}}
+  \address{\addressaswidth{\textsc{Contact}}\\\addressaswidth{\href{mailto:jgross@mit.edu}{jgross@mit.edu}}\\\addressaswidth{(631) 790-8962}}
+\end{multitex}
+
 \begin{document}
 
 \begin{multitex}
