@@ -18,6 +18,7 @@
 *.swp
 *.synctex.gz
 *.synctex.gz(busy)
+*.synctex(busy)
 *~
 .*.swp
 /01-introduction.tex
